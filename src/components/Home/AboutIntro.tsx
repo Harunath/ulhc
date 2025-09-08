@@ -15,7 +15,7 @@ export default function AboutIntro() {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.6, ease: "easeOut" }}>
-						<span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-200">
+						<span className="inline-flex items-center gap-2 rounded-full bg-[#045e5a]/10 px-3 py-1 text-xs font-semibold text-[#045e5a] ring-1 ring-[#045e6a]/10">
 							Who We Are
 						</span>
 
@@ -36,21 +36,21 @@ export default function AboutIntro() {
 						{/* Value bullets */}
 						<ul className="mt-6 space-y-3 text-slate-700">
 							<li className="flex items-start gap-3">
-								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-600" />
+								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								Save on pharmacy, lab, and radiology services with verified
 								partners.
 							</li>
 							<li className="flex items-start gap-3">
-								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-600" />
+								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								Free second medical opinion from approved specialists.
 							</li>
 							<li className="flex items-start gap-3">
-								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-600" />
+								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								In-patient benefits (up to 6 days): doctor’s fees, nursing, OT,
 								and general ward/bed.
 							</li>
 							<li className="flex items-start gap-3">
-								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-600" />
+								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								Assistance in sourcing surgical implants & materials.
 							</li>
 						</ul>
@@ -59,12 +59,12 @@ export default function AboutIntro() {
 						<div className="mt-8 flex flex-col gap-3 sm:flex-row">
 							<Link
 								href="/about"
-								className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700">
+								className="inline-flex items-center justify-center rounded-lg bg-[#045e5a] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#045e5a]">
 								Learn more about ULHC
 							</Link>
 							<Link
 								href="/hcp"
-								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 hover:bg-blue-50">
+								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/20 hover:bg-[#045e5a]/10">
 								Explore the Health Card Program
 							</Link>
 						</div>

@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
-// Blue accent (Tailwind blue-600) on white bg
-const ACCENT = "text-blue-600";
-const ACCENT_BG = "bg-blue-600";
+// Blue accent (Tailwind [#045e5a]) on white bg
+const ACCENT = "text-[#045e5a]";
+const ACCENT_BG = "bg-[#045e5a]";
 
 const LINKS = [
 	{ href: "/", label: "Home" },
@@ -47,17 +48,23 @@ export default function Navbar() {
 					: "bg-transparent",
 			].join(" ")}
 			aria-label="Main navigation">
-			<div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 lg:px-8">
+			<div className="mx-auto font-medium flex w-full max-w-7xl items-center justify-between px-4 lg:px-8">
 				{/* Logo (ULHC text) */}
 				<Link
 					href="/"
-					className="group inline-flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-					<span className={`text-2xl font-extrabold tracking-wide ${ACCENT}`}>
+					className="group inline-flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#045e5a]">
+					{/* <span className={`text-2xl font-extrabold tracking-wide ${ACCENT}`}>
 						ULHC
 					</span>
 					<span className="hidden text-xs font-medium text-slate-500 sm:inline">
 						Unity Life Health Care
-					</span>
+					</span> */}
+					<Image
+						src="https://res.cloudinary.com/diaoy3wzi/image/upload/v1757327269/ULHC_Logo_PNG_sxooqj.png"
+						alt="ULHC Logo"
+						width={150}
+						height={50}
+					/>
 				</Link>
 
 				{/* Desktop Menu */}
@@ -69,13 +76,13 @@ export default function Navbar() {
 								key={link.href}
 								onMouseEnter={() => setHovered(link.href)}
 								onMouseLeave={() => setHovered(null)}
-								whileHover={{ color: "#2563eb" }} // blue-600
+								whileHover={{ color: "#045e5a" }} // [#045e5a]
 								className="relative px-2 py-1 min-w-16 flex justify-center items-center">
 								<Link
 									href={link.href}
 									className={[
 										"transition duration-300",
-										active ? ACCENT : "text-black hover:text-blue-600",
+										active ? ACCENT : "text-black hover:text-[#045e5a]",
 									].join(" ")}>
 									{link.label}
 								</Link>
@@ -97,17 +104,17 @@ export default function Navbar() {
 							</motion.div>
 						);
 					})}
-					<Link
+					{/* <Link
 						href="/join"
-						className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+						className="rounded-lg bg-[#045e5a] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#045e5a]">
 						Join Us
-					</Link>
+					</Link> */}
 				</div>
 
 				{/* Mobile Menu Toggle */}
 				<button
 					onClick={() => setMenuOpen(true)}
-					className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+					className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#045e5a]"
 					aria-label="Open menu"
 					aria-expanded={menuOpen}
 					aria-controls="mobile-drawer">
@@ -134,7 +141,7 @@ export default function Navbar() {
 						{/* Panel */}
 						<motion.aside
 							id="mobile-drawer"
-							className="fixed top-0 right-0 z-[50] h-full w-4/5 max-w-xs bg-white px-6 pt-24 pb-8 shadow-xl lg:hidden"
+							className="fixed top-0 right-0 z-[50] h-full w-4/5 max-w-xs font-medium bg-white px-6 pt-24 pb-8 shadow-xl lg:hidden"
 							initial={{ x: "100%" }}
 							animate={{ x: 0 }}
 							exit={{ x: "100%" }}
@@ -144,7 +151,7 @@ export default function Navbar() {
 							{/* Close Button */}
 							<button
 								onClick={() => setMenuOpen(false)}
-								className="absolute top-6 right-6 text-blue-600 hover:rotate-90 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md"
+								className="absolute top-6 right-6 text-[#045e5a] hover:rotate-90 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#045e5a] rounded-md"
 								aria-label="Close menu">
 								<FaTimes size={26} />
 							</button>
@@ -164,7 +171,7 @@ export default function Navbar() {
 												className={[
 													"block rounded-md px-3 py-2 text-base font-medium transition-colors duration-300",
 													active
-														? "bg-blue-50 text-blue-600"
+														? "bg-[#045e5a]/10 text-[#045e5a]"
 														: "text-slate-800 hover:bg-slate-100",
 												].join(" ")}>
 												{link.label}
@@ -173,14 +180,14 @@ export default function Navbar() {
 									);
 								})}
 
-								<div className="pt-2">
+								{/* <div className="pt-2">
 									<Link
 										href="/join"
 										onClick={() => setMenuOpen(false)}
-										className="block rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow hover:bg-blue-700">
+										className="block rounded-lg bg-[#045e5a] px-3 py-2 text-center text-sm font-semibold text-white shadow hover:bg-blue-700">
 										Join Us
 									</Link>
-								</div>
+								</div> */}
 							</nav>
 						</motion.aside>
 					</>

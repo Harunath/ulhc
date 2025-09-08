@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 type Partner = {
 	name: string;
-	logo: string; 
+	logo: string;
 	category: "Hospital" | "Lab" | "Pharmacy" | "Radiology";
 };
 
@@ -49,7 +49,7 @@ export default function Partners() {
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
-					<span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-200">
+					<span className="inline-flex items-center gap-2 rounded-full bg-[#045e5a]/10 px-3 py-1 text-xs font-semibold text-[#045e5a] ring-1 ring-[#045e5a]/20">
 						Our Network
 					</span>
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -84,7 +84,7 @@ export default function Partners() {
 							<figcaption className="sr-only">{p.name}</figcaption>
 							{/* category chip on hover (desktop) */}
 							<div
-								className="pointer-events-none absolute bottom-2 left-2 hidden rounded-md bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700 ring-1 ring-blue-100 md:block opacity-0 group-hover:opacity-100 transition"
+								className="pointer-events-none absolute bottom-2 left-2 hidden rounded-md bg-[#045e5a]/10 px-2 py-0.5 text-[10px] font-semibold text-[#045e5a] ring-1 ring-[#045e5a]/10 md:block opacity-0 group-hover:opacity-100 transition"
 								aria-hidden>
 								{p.category}
 							</div>
@@ -96,7 +96,7 @@ export default function Partners() {
 				<div className="mt-12 flex justify-center">
 					<Link
 						href="/partners"
-						className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 hover:bg-blue-50">
+						className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/20 hover:bg-[#045e5a]/10">
 						View All Partners →
 					</Link>
 				</div>

@@ -36,8 +36,8 @@ export default function Cta() {
 					<div className="flex flex-col items-start gap-6 px-6 py-10 sm:px-10 lg:flex-row lg:items-center lg:justify-between">
 						<div>
 							<h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-								With ULHC, you’re not just a cardholder — you’re part of a
-								healthcare movement.
+								With ULHC, you&apos;re not just a cardholder — you&apos;re part
+								of a healthcare movement.
 							</h3>
 							<p className="mt-2 max-w-2xl text-slate-600">
 								Save on medical expenses, access trusted care when it matters
@@ -48,12 +48,12 @@ export default function Cta() {
 						<div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
 							<Link
 								href="/join"
-								className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700">
+								className="inline-flex items-center justify-center rounded-lg bg-[#045e5a] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:text-[#045e5a] hover:bg-[#045e5a]/20">
 								Join ULHC Today
 							</Link>
 							<Link
 								href="/hcp"
-								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-blue-700 ring-1 ring-inset ring-blue-200 hover:bg-blue-50">
+								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/10 hover:bg-[#045e5a]/10">
 								Learn About the Health Card
 							</Link>
 						</div>

@@ -133,7 +133,7 @@ function QuoteCard({ t }: { t: Testimonial }) {
 						className="h-9 w-9 rounded-full object-cover border border-black/10 dark:border-white/10"
 					/>
 				) : (
-					<div className="h-9 w-9 rounded-full bg-gradient-to-br from-blue-500/70 to-indigo-500/70 dark:from-blue-400/30 dark:to-indigo-400/30 border border-black/10 dark:border-white/10" />
+					<div className="h-9 w-9 rounded-full bg-gradient-to-br from-[#045e5a]/70 to-[#045e5a]/50 dark:from-[#045e5a]/30 dark:to-[#045e5a]/10 border border-black/10 dark:border-white/10" />
 				)}
 				<div className="text-sm">
 					<div className="font-semibold text-gray-900 dark:text-white">

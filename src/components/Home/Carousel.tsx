@@ -61,7 +61,7 @@ const Carousel = () => {
 
 				<Link
 					href="/about"
-					className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm sm:text-base px-5 py-2 rounded-md shadow-md transition duration-300">
+					className="inline-block bg-[#045e5a] hover:bg-[#045e5a]/80 text-white font-semibold text-sm sm:text-base px-5 py-2 rounded-md shadow-md transition duration-300">
 					Read More
 				</Link>
 			</motion.div>

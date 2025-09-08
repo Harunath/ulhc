@@ -29,27 +29,27 @@ export default function Footer() {
 						<h4 className="text-sm font-semibold text-white">Quick Links</h4>
 						<ul className="mt-4 space-y-2 text-sm">
 							<li>
-								<Link href="/about" className="hover:text-blue-400">
+								<Link href="/about" className="hover:text-[#045e5a]">
 									About Us
 								</Link>
 							</li>
 							<li>
-								<Link href="/hcp" className="hover:text-blue-400">
+								<Link href="/hcp" className="hover:text-[#045e5a]">
 									Health Card Program
 								</Link>
 							</li>
 							<li>
-								<Link href="/partners" className="hover:text-blue-400">
+								<Link href="/partners" className="hover:text-[#045e5a]">
 									Partners
 								</Link>
 							</li>
 							<li>
-								<Link href="/join" className="hover:text-blue-400">
+								<Link href="/join" className="hover:text-[#045e5a]">
 									Join Us
 								</Link>
 							</li>
 							<li>
-								<Link href="/contact" className="hover:text-blue-400">
+								<Link href="/contact" className="hover:text-[#045e5a]">
 									Contact
 								</Link>
 							</li>
@@ -61,22 +61,22 @@ export default function Footer() {
 						<h4 className="text-sm font-semibold text-white">Resources</h4>
 						<ul className="mt-4 space-y-2 text-sm">
 							<li>
-								<Link href="/faq" className="hover:text-blue-400">
+								<Link href="/faq" className="hover:text-[#045e5a]">
 									FAQs
 								</Link>
 							</li>
 							<li>
-								<Link href="/blog" className="hover:text-blue-400">
+								<Link href="/blog" className="hover:text-[#045e5a]">
 									Blog
 								</Link>
 							</li>
 							<li>
-								<Link href="/privacy" className="hover:text-blue-400">
+								<Link href="/privacy" className="hover:text-[#045e5a]">
 									Privacy Policy
 								</Link>
 							</li>
 							<li>
-								<Link href="/terms" className="hover:text-blue-400">
+								<Link href="/terms" className="hover:text-[#045e5a]">
 									Terms & Conditions
 								</Link>
 							</li>
@@ -95,22 +95,22 @@ export default function Footer() {
 						<div className="mt-4 flex gap-3">
 							<a
 								href="#"
-								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white transition">
+								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-[#045e5a] hover:text-white transition">
 								<FaFacebookF size={14} />
 							</a>
 							<a
 								href="#"
-								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white transition">
+								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-[#045e5a] hover:text-white transition">
 								<FaInstagram size={14} />
 							</a>
 							<a
 								href="#"
-								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white transition">
+								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-[#045e5a] hover:text-white transition">
 								<FaXTwitter size={14} />
 							</a>
 							<a
 								href="#"
-								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white transition">
+								className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-slate-300 hover:bg-[#045e5a] hover:text-white transition">
 								<FaLinkedinIn size={14} />
 							</a>
 						</div>

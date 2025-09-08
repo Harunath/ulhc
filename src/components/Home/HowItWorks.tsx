@@ -8,19 +8,19 @@ const steps = [
 	{
 		title: "Join ULHC",
 		desc: "Create your account and get your ULHC Health Card in minutes.",
-		icon: <FiUsers className="h-6 w-6 text-blue-600" />,
+		icon: <FiUsers className="h-6 w-6 text-[#045e5a]" />,
 		cta: { href: "/join", label: "Get Your Health Card" },
 	},
 	{
 		title: "Access Benefits",
 		desc: "Use pharmacy, lab & radiology discounts and in-patient benefits at partners.",
-		icon: <FiCheckCircle className="h-6 w-6 text-blue-600" />,
+		icon: <FiCheckCircle className="h-6 w-6 text-[#045e5a]" />,
 		cta: { href: "/hcp", label: "See What’s Covered" },
 	},
 	{
 		title: "Peace of Mind",
 		desc: "Save on medical expenses and stay protected with trusted medical support.",
-		icon: <FiShield className="h-6 w-6 text-blue-600" />,
+		icon: <FiShield className="h-6 w-6 text-[#045e5a]" />,
 		cta: { href: "/partners", label: "Find a Partner" },
 	},
 ];
@@ -31,7 +31,7 @@ export default function HowItWorks() {
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
-					<span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-200">
+					<span className="inline-flex items-center gap-2 rounded-full bg-[#045e5a]/10 px-3 py-1 text-xs font-semibold text-[#045e5a] ring-1 ring-[#045e5a]/20">
 						Getting Started
 					</span>
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -48,7 +48,7 @@ export default function HowItWorks() {
 					{/* Vertical line for large screens */}
 					<div
 						aria-hidden
-						className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-blue-200 via-blue-100 to-transparent lg:block"
+						className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#045e5a]/20 via-[#045e5a]/10 to-transparent lg:block"
 					/>
 
 					<ol className="grid gap-6 sm:gap-8 lg:grid-cols-2">
@@ -66,8 +66,8 @@ export default function HowItWorks() {
 										className={[
 											"absolute left-1/2 top-3 -translate-x-1/2 h-3 w-3 rounded-full ring-4 ring-white",
 											i === 0
-												? "bg-blue-600"
-												: "bg-blue-200 group-hover:bg-blue-400 transition-colors",
+												? "bg-[#045e5a]"
+												: "bg-[#045e5a]/20 group-hover:bg-[#045e5a] transition-colors",
 										].join(" ")}
 										aria-hidden
 									/>
@@ -76,7 +76,7 @@ export default function HowItWorks() {
 								{/* Card */}
 								<div className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md lg:max-w-xl lg:mx-auto">
 									<div className="flex items-start gap-4">
-										<div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 ring-1 ring-blue-100">
+										<div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#045e5a]/10 ring-1 ring-[#045e5a]/10">
 											{step.icon}
 										</div>
 										<div>
@@ -89,7 +89,7 @@ export default function HowItWorks() {
 											<div className="mt-4">
 												<Link
 													href={step.cta.href}
-													className="text-sm font-semibold text-blue-700 hover:text-blue-800">
+													className="text-sm font-semibold text-[#045e5a] hover:text-[#045e5a]/90">
 													{step.cta.label} →
 												</Link>
 											</div>
@@ -97,7 +97,7 @@ export default function HowItWorks() {
 									</div>
 
 									{/* Hover accent */}
-									<div className="mt-6 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full" />
+									<div className="mt-6 h-0.5 w-0 bg-[#045e5a] transition-all duration-300 group-hover:w-full" />
 								</div>
 							</motion.li>
 						))}
@@ -108,7 +108,7 @@ export default function HowItWorks() {
 				<div className="mt-12 flex items-center justify-center">
 					<Link
 						href="/join"
-						className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700">
+						className="inline-flex items-center justify-center rounded-lg bg-[#045e5a] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#045e5a]/80">
 						Start with ULHC Today
 					</Link>
 				</div>
