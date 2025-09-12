@@ -1,4 +1,5 @@
 import AboutUlhc from "@/components/About/AboutUlhc";
+import HospitalValueProposition from "@/components/About/HospitalValueProposition";
 import Join from "@/components/About/Join";
 import Mission from "@/components/About/Mission";
 import Values from "@/components/About/Values";
@@ -10,6 +11,7 @@ function page() {
 	return (
 		<>
 			<AboutUlhc />
+			<HospitalValueProposition/>
 			<Mission />
 			<Vision />
 			<Values />
