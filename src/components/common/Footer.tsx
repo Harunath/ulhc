@@ -7,6 +7,7 @@ import {
 	FaLinkedinIn,
 	FaXTwitter,
 } from "react-icons/fa6";
+import Image from "next/image";
 
 const BRAND = "#045e5a";
 
@@ -18,7 +19,13 @@ export default function Footer() {
 				<div className="grid gap-10 md:grid-cols-4">
 					{/* Logo + Mission */}
 					<div>
-						<h3 className="text-xl font-bold">ULHC</h3>
+						<Image
+												src="https://res.cloudinary.com/diaoy3wzi/image/upload/v1757327269/ULHC_Logo_PNG_sxooqj.png"
+												alt="ULHC Logo"
+												width={150}
+												height={50}
+												className="bg-white p-2 rounded-md mb-4"
+											/>
 						<p className="mt-3 text-sm leading-relaxed text-white/80">
 							Unity Life Health Care (ULHC) is dedicated to delivering genuine
 							healthcare savings and trusted medical support for individuals and
@@ -102,6 +109,16 @@ export default function Footer() {
 						reserved.
 					</p>
 					<p>Designed with ❤️ for healthier communities.</p>
+					<p>
+						Developed by{" "}
+						<a
+							href="https://hsdev.in"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="font-semibold hover:underline hover:text-white/80 transition">
+							HS Dev
+						</a>
+					</p>
 				</div>
 			</div>
 		</footer>
