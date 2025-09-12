@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Cta() {
 	return (
-		<section className="relative overflow-hidden">
+		<section className="relative overflow-hidden bg-white">
 			{/* background */}
 			<div
 				aria-hidden
@@ -36,7 +36,7 @@ export default function Cta() {
 					<div className="flex flex-col items-start gap-6 px-6 py-10 sm:px-10 lg:flex-row lg:items-center lg:justify-between">
 						<div>
 							<h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-								With ULHC, you&apos;re not just a cardholder — you&apos;re part
+								With ULHC, you&apos;re not just a cardholder - you&apos;re part
 								of a healthcare movement.
 							</h3>
 							<p className="mt-2 max-w-2xl text-slate-600">

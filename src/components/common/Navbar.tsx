@@ -13,7 +13,7 @@ const ACCENT_BG = "bg-[#045e5a]";
 const LINKS = [
 	{ href: "/", label: "Home" },
 	{ href: "/about", label: "About" },
-
+	{ href: "/empanelment", label: "Empanelment" },
 	{ href: "/hcp", label: "Health Card Program" },
 	{ href: "/contact", label: "Contact" },
 ];

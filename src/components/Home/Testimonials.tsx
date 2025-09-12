@@ -44,7 +44,7 @@ export default function Testimonials({
 	);
 
 	return (
-		<section className="relative py-16 sm:py-20 bg-gray-50 dark:bg-neutral-900">
+		<section className="relative py-16 sm:py-20 bg-white-100">
 			{/* soft glow */}
 			<div
 				aria-hidden
@@ -61,11 +61,11 @@ export default function Testimonials({
 					viewport={{ once: true, margin: "-80px" }}
 					transition={{ duration: 0.6, ease: "easeOut" }}
 					className="text-center mb-10 sm:mb-14">
-					<h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+					<h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-black">
 						{title}
 					</h2>
 					{subtitle ? (
-						<p className="mt-3 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+						<p className="mt-3 text-black  max-w-2xl mx-auto">
 							{subtitle}
 						</p>
 					) : null}
