@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 
-// Blue accent (Tailwind [#045e5a]) on white bg
 const ACCENT = "text-[#045e5a]";
 const ACCENT_BG = "bg-[#045e5a]";
 
@@ -15,9 +14,7 @@ const LINKS = [
 	{ href: "/", label: "Home" },
 	{ href: "/about", label: "About" },
 
-	{ href: "/hcp", label: "HCP" },
-	{ href: "/pricing", label: "Pricing" },
-	{ href: "/partners", label: "Partners" },
+	{ href: "/hcp", label: "Health Card Program" },
 	{ href: "/contact", label: "Contact" },
 ];
 
