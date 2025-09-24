@@ -1,7 +1,6 @@
 "use client";
 
 import {
-	FiShield,
 	FiDollarSign,
 	FiUsers,
 	FiFileText,
@@ -68,8 +67,10 @@ export default function ValuesULHC({
 	variant?: Variant;
 }) {
 	// if (variant === "diagonal") return <DiagonalTiles />;
-	if (variant === "diagonal") return <div>DiagonalTiles variant not implemented</div>;
-	if (variant === "wheel") return <div>WheelOfValues variant not implemented</div>;
+	if (variant === "diagonal")
+		return <div>DiagonalTiles variant not implemented</div>;
+	if (variant === "wheel")
+		return <div>WheelOfValues variant not implemented</div>;
 	return <RibbonMosaic />;
 }
 

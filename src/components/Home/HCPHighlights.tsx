@@ -35,10 +35,10 @@ export default function HcpHighlights() {
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
 					<span className="inline-flex items-center gap-2 rounded-full bg-[#045e5a]/10 px-3 py-1 text-xs font-semibold text-[#045e5a] ring-1 ring-[#045e5a]/20">
-						Health Card Program
+						Health Care Program
 					</span>
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-						The Health Card Program (HCP)
+						The Health Care Program (HCP)
 					</h2>
 					<p className="mt-3 text-slate-600">
 						Your key to healthcare savings and trusted support across pharmacy,

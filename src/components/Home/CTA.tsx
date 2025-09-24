@@ -54,7 +54,7 @@ export default function Cta() {
 							<Link
 								href="/hcp"
 								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/10 hover:bg-[#045e5a]/10">
-								Learn About the Health Card
+								Learn About the Health Care
 							</Link>
 						</div>
 					</div>
