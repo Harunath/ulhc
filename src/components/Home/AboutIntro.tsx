@@ -65,7 +65,7 @@ export default function AboutIntro() {
 							<Link
 								href="/hcp"
 								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/20 hover:bg-[#045e5a]/10">
-								Explore the Health Card Program
+								Explore the Health Care Program
 							</Link>
 						</div>
 

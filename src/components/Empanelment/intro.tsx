@@ -162,7 +162,7 @@ export default function Intro() {
 										{ label: "Hospitals", value: "500+" },
 										{ label: "Districts", value: "100+" },
 										{ label: "Support", value: "24/7" },
-									].map((stat, idx) => (
+									].map((stat) => (
 										<div
 											key={stat.label}
 											className="rounded-2xl border border-gray-100 bg-white p-5 text-center shadow-sm ring-1 ring-gray-100">

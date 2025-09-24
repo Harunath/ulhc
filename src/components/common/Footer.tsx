@@ -9,8 +9,6 @@ import {
 } from "react-icons/fa6";
 import Image from "next/image";
 
-const BRAND = "#045e5a";
-
 export default function Footer() {
 	return (
 		<footer className="relative bg-[#045e5a] text-white">
@@ -20,12 +18,12 @@ export default function Footer() {
 					{/* Logo + Mission */}
 					<div>
 						<Image
-												src="https://res.cloudinary.com/diaoy3wzi/image/upload/v1757327269/ULHC_Logo_PNG_sxooqj.png"
-												alt="ULHC Logo"
-												width={150}
-												height={50}
-												className="bg-white p-2 rounded-md mb-4"
-											/>
+							src="https://res.cloudinary.com/diaoy3wzi/image/upload/v1757327269/ULHC_Logo_PNG_sxooqj.png"
+							alt="ULHC Logo"
+							width={150}
+							height={50}
+							className="bg-white p-2 rounded-md mb-4"
+						/>
 						<p className="mt-3 text-sm leading-relaxed text-white/80">
 							Unity Life Health Care (ULHC) is dedicated to delivering genuine
 							healthcare savings and trusted medical support for individuals and
@@ -38,38 +36,48 @@ export default function Footer() {
 						<h4 className="text-sm font-semibold">Quick Links</h4>
 						<ul className="mt-4 space-y-2 text-sm">
 							{[
-								"About Us",
-								"Health Card Program",
-								"Partners",
-								"Join Us",
-								"Contact",
+								{ name: "Home", href: "/" },
+								{ name: "About", href: "/about" },
+								{ name: "Health Care Program", href: "/hcp" },
+								{ name: "Empanelment", href: "/empanelment" },
+								{ name: "Contact", href: "/contact" },
 							].map((link, idx) => (
 								<li key={idx}>
 									<Link
-										href={`/${link.toLowerCase().replace(/\s/g, "")}`}
+										href={link.href}
 										className="hover:text-white/80 transition">
-										{link}
+										{link.name}
 									</Link>
 								</li>
 							))}
 						</ul>
 					</div>
 
-					{/* Resources */}
+					{/* Resources (optional – can remove if not needed) */}
 					<div>
 						<h4 className="text-sm font-semibold">Resources</h4>
 						<ul className="mt-4 space-y-2 text-sm">
-							{["FAQs", "Blog", "Privacy Policy", "Terms & Conditions"].map(
-								(link, idx) => (
-									<li key={idx}>
-										<Link
-											href={`/${link.toLowerCase().replace(/\s/g, "")}`}
-											className="hover:text-white/80 transition">
-											{link}
-										</Link>
-									</li>
-								)
-							)}
+							<li>
+								<Link
+									href="/legals/hcp-guidelines"
+									className="hover:text-white/80 transition">
+									HCP guidelines
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/legals/privacy-policy"
+									className="hover:text-white/80 transition">
+									Privacy Policy
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/legals/terms-and-conditions"
+									className="hover:text-white/80 transition">
+									Terms & Conditions
+								</Link>
+							</li>
 						</ul>
 					</div>
 

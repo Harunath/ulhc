@@ -14,7 +14,7 @@ const LINKS = [
 	{ href: "/", label: "Home" },
 	{ href: "/about", label: "About" },
 	{ href: "/empanelment", label: "Empanelment" },
-	{ href: "/hcp", label: "Health Card Program" },
+	{ href: "/hcp", label: "Health Care Program" },
 	{ href: "/contact", label: "Contact" },
 ];
 
