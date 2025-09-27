@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-	FaFacebookF,
-	FaInstagram,
-	FaLinkedinIn,
-	FaXTwitter,
-} from "react-icons/fa6";
+
 import Image from "next/image";
 
 export default function Footer() {
@@ -86,25 +81,9 @@ export default function Footer() {
 						<h4 className="text-sm font-semibold">Contact</h4>
 						<ul className="mt-4 space-y-2 text-sm">
 							<li>📞 [Phone Number]</li>
-							<li>📧 [Email ID]</li>
+							<li>📧 unitylifehealthcare@gmail.com</li>
 							<li>🏢 Unity Life Health Care (ULHC)</li>
 						</ul>
-						{/* Social Icons */}
-						<div className="mt-4 flex gap-3">
-							{[
-								{ icon: <FaFacebookF size={14} />, href: "#" },
-								{ icon: <FaInstagram size={14} />, href: "#" },
-								{ icon: <FaXTwitter size={14} />, href: "#" },
-								{ icon: <FaLinkedinIn size={14} />, href: "#" },
-							].map((social, idx) => (
-								<a
-									key={idx}
-									href={social.href}
-									className="flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-white hover:bg-white hover:text-[#045e5a] transition">
-									{social.icon}
-								</a>
-							))}
-						</div>
 					</div>
 				</div>
 			</div>
