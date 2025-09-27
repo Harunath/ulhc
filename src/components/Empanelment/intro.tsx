@@ -17,58 +17,59 @@ import {
 
 const BRAND = "#045e5a"; // ULHC brand color
 
+// UPDATED COPY
 const valueProps = [
 	{
-		title: "Steady Patient Inflow",
-		desc: "Predictable referrals via the VR Kisan Parivaar (VRKP) network.",
+		title: "Access to Member Referrals",
+		desc: "Receive steady patient referrals from ULHC program members.",
 		Icon: FaUsers,
 	},
 	{
-		title: "₹25,000 Fixed Surgical Benefit",
-		desc: "Paid promptly upon patient approval for reliable revenue.",
+		title: "Fixed Benefit per Approved Case",
+		desc: "Assured benefit amount disbursed for every approved case.",
 		Icon: FaWallet,
 	},
 	{
-		title: "Simplified Process",
-		desc: "ULHC manages pre-authorization, documentation & member coordination.",
+		title: "Approval & Documentation Help",
+		desc: "Guidance on approvals, paperwork, and coordination end-to-end.",
 		Icon: FaClipboardCheck,
 	},
 	{
-		title: "Enhanced Trust & Visibility",
-		desc: "Be recognized within the VRKP community as a trusted partner.",
+		title: "Trusted Provider Visibility",
+		desc: "Be featured as a verified healthcare partner within our network.",
 		Icon: FaBuilding,
 	},
 	{
-		title: "Simple Empanelment Agreement",
-		desc: "Clear terms and quick onboarding with dedicated support.",
+		title: "Simple, Transparent Onboarding",
+		desc: "Clear terms, quick empanelment, and responsive support.",
 		Icon: FaFileAlt,
 	},
 	{
-		title: "Immediate Access",
-		desc: "Tap into the VRKP member base for treatments and surgeries.",
+		title: "Immediate Program Access",
+		desc: "Begin serving members soon after onboarding is completed.",
 		Icon: FaStethoscope,
 	},
 ];
 
 const empanelBenefits = [
 	{
-		title: "Timely Payments",
-		desc: "Direct hospital payments made by ULHC following patient approval.",
+		title: "Timely, Direct Settlements",
+		desc: "Payments released promptly on approved cases as per program norms.",
 		Icon: FaShieldAlt,
 	},
 	{
 		title: "Higher Utilization",
-		desc: "Increase occupancy across wards and surgical units with steady referrals.",
+		desc: "Boost occupancy across wards and surgical units via consistent inflow.",
 		Icon: FaStar,
 	},
 	{
-		title: "Admin Support",
-		desc: "We assist with documentation, approvals, and settlement tracking.",
+		title: "Operational Support",
+		desc: "We assist with documentation, approvals, and claims tracking.",
 		Icon: FaClipboardList,
 	},
 	{
 		title: "Win–Win Partnership",
-		desc: "Affordable care for members, reliable revenue for hospitals.",
+		desc: "Affordable care for members, predictable revenue for hospitals.",
 		Icon: FaHandshake,
 	},
 ];
@@ -76,28 +77,23 @@ const empanelBenefits = [
 const steps = [
 	{
 		step: 1,
-		title: "Apply",
-		desc: "Submit the empanelment form with basic hospital details & specialties.",
+		title: "Submit Hospital Information",
+		desc: "Share your hospital profile, specialties, and facilities for review.",
 	},
 	{
 		step: 2,
-		title: "Review",
-		desc: "ULHC vets credentials, infrastructure, and service capabilities.",
+		title: "Credential & Service Review",
+		desc: "ULHC evaluates credentials and alignment with program standards.",
 	},
 	{
 		step: 3,
-		title: "Agreement",
-		desc: "Sign a simple, clear empanelment agreement with transparent terms.",
+		title: "Agreement & Onboarding",
+		desc: "Sign the partnership agreement and complete formal onboarding.",
 	},
 	{
 		step: 4,
-		title: "Onboarding",
-		desc: "Get listed in the partner directory and receive process training.",
-	},
-	{
-		step: 5,
-		title: "Go Live",
-		desc: "Start receiving VRKP referrals; ULHC coordinates approvals & payments.",
+		title: "Start Serving ULHC Members",
+		desc: "Go live, receive referrals, and get ongoing support from our team.",
 	},
 ];
 
@@ -131,18 +127,17 @@ export default function Intro() {
 								Partner with <span style={{ color: BRAND }}>ULHC</span>
 							</h1>
 							<p className="mt-5 text-lg leading-7 text-gray-600">
-								We collaborate with select hospitals to deliver affordable,
-								high-quality surgical care to VR Kisan Parivaar members. ULHC
-								ensures timely payments, steady referrals, and streamlined
-								coordination — helping you maximize utilization while uplifting
-								community health.
+								ULHC invites hospitals and medical service providers to join its
+								partner network. Together, we deliver affordable, high-quality
+								care to program members with transparent benefits, streamlined
+								processes, and ongoing support.
 							</p>
 							<div className="mt-8 flex flex-wrap items-center gap-4">
 								<a
 									href="#apply"
 									className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium text-white shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:opacity-95"
 									style={{ backgroundColor: BRAND }}>
-									Apply for Empanelment
+									Join as a Hospital
 								</a>
 								<a
 									href="#process"
@@ -179,22 +174,21 @@ export default function Intro() {
 				</div>
 			</section>
 
-			{/* VALUE PROPOSITION */}
+			{/* WHY PARTNER */}
 			<section id="value" className="py-20">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8">
 					<header className="mx-auto max-w-2xl text-center">
 						<span
 							className="inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide"
 							style={{ backgroundColor: "#045e5a12", color: BRAND }}>
-							Why partner with us
+							Why Partner with ULHC
 						</span>
 						<h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-							Value Proposition for{" "}
-							<span style={{ color: BRAND }}>Hospitals</span>
+							Benefits for <span style={{ color: BRAND }}>Hospitals</span>
 						</h2>
 						<p className="mt-4 text-lg text-gray-600">
-							Steady referrals, assured payments, and a simplified partnership —
-							so you can focus on delivering great care.
+							Access referrals, assured benefits on approved cases, and full
+							administrative support with a simple, transparent onboarding.
 						</p>
 					</header>
 
@@ -229,7 +223,7 @@ export default function Intro() {
 				</div>
 			</section>
 
-			{/* BENEFITS OF EMPANELMENT */}
+			{/* BENEFITS (kept as a second grid; copy aligned to your notes) */}
 			<section id="benefits" className="py-20 bg-gray-50">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8">
 					<header className="mx-auto max-w-2xl text-center">
@@ -239,11 +233,11 @@ export default function Intro() {
 							What you get
 						</span>
 						<h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-							Benefits of <span style={{ color: BRAND }}>Empanelment</span>
+							Program <span style={{ color: BRAND }}>Advantages</span>
 						</h2>
 						<p className="mt-4 text-lg text-gray-600">
-							Join a community-trusted initiative with reliable revenue and
-							strong support.
+							Predictable settlements, stronger utilization, and hands-on
+							administrative support.
 						</p>
 					</header>
 
@@ -283,7 +277,7 @@ export default function Intro() {
 							Onboarding <span style={{ color: BRAND }}>Process</span>
 						</h2>
 						<p className="mt-4 text-lg text-gray-600">
-							From application to live referrals in a few simple steps.
+							From application to serving members in four simple steps.
 						</p>
 					</header>
 
@@ -317,14 +311,14 @@ export default function Intro() {
 							network?
 						</h3>
 						<p className="mt-3 mx-auto max-w-2xl text-gray-600">
-							Apply today to become an empaneled partner hospital. Our team will
-							reach out with next steps within 2–3 business days.
+							Apply today to become an empaneled partner. Our team will review
+							your details and share next steps.
 						</p>
 						<a
 							href="#apply"
 							className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 text-base font-medium text-white shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:opacity-95"
 							style={{ backgroundColor: BRAND }}>
-							Apply for Empanelment <FaChevronRight className="h-4 w-4" />
+							Join as a Hospital <FaChevronRight className="h-4 w-4" />
 						</a>
 					</div>
 				</div>
@@ -332,6 +326,9 @@ export default function Intro() {
 
 			{/* APPLY (placeholder anchor for your form section) */}
 			<div id="apply" className="h-2" />
+
+			{/* Health Care Program Tab Content — add your tabs here */}
+			{/* <ProgramTabs /> */}
 		</div>
 	);
 }
