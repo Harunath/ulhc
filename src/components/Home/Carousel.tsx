@@ -13,7 +13,6 @@ const images = [
 
 	"https://res.cloudinary.com/dk0smdu0d/image/upload/v1756832508/hospital-background-website-ai-generative_895799-9228_rcyaox.jpg",
 	"https://res.cloudinary.com/dk0smdu0d/image/upload/v1756832584/360_F_487692869_V8MZ1hLvhXQZKT50EV8Sh13AkdibGJb3_i7yw5p.jpg",
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711346/life-bg-new_f75les.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711343/health-insurance-bg_jv8kmk.webp",
 ];
 
