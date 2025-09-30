@@ -18,11 +18,11 @@ export default function Mission() {
 						Our Mission
 					</span>
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-						Bridging VRKP Members with Trusted Care
+						Bridging Healthcare Gaps
 					</h2>
 					<p className="mt-3 text-slate-600">
-						To bridge VR Kisan Parivaar members with empaneled hospitals,
-						delivering efficient, affordable, and trusted healthcare services.
+						To bridge healthcare gaps by providing affordable treatment,
+						dependable hospital access, and genuine care for every member.
 					</p>
 				</div>
 
@@ -30,18 +30,18 @@ export default function Mission() {
 				<div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{[
 						{
-							title: "Affordable Services",
-							desc: "Ensuring that every member can access quality healthcare without financial strain.",
+							title: "Affordable Treatment",
+							desc: "Ensuring that every member can receive quality healthcare without financial strain.",
 							icon: <FiDollarSign className="h-6 w-6" />,
 						},
 						{
-							title: "Trusted Access",
-							desc: "Partnering with empaneled hospitals and reliable doctors for dependable care.",
+							title: "Dependable Hospital Access",
+							desc: "Partnering with empaneled hospitals and reliable doctors for accessible and trusted care.",
 							icon: <FiUserCheck className="h-6 w-6" />,
 						},
 						{
-							title: "Compassionate Support",
-							desc: "Delivering efficient, member-focused care with empathy at its core.",
+							title: "Genuine Care",
+							desc: "Delivering efficient, member-focused healthcare with compassion at its core.",
 							icon: <FiHeart className="h-6 w-6" />,
 						},
 					].map((item) => (

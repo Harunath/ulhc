@@ -37,7 +37,7 @@ export default function Highlights() {
 									Your ULHC Health Care Program — at a glance
 								</h2>
 								<p className="mt-2 text-[15px] leading-7 text-slate-700 sm:text-base">
-									For your convenience, we’ve outlined the benefits, processes,
+									For your convenience, we&apos;ve outlined the benefits, processes,
 									and support available through the ULHC Health Care Program.
 									This guide helps you make the most of your membership and
 									enjoy all the services provided.

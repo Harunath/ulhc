@@ -168,23 +168,8 @@ export default function Partners() {
 						</motion.figure>
 					))}
 				</div>
-
-				{/* CTA */}
-				<div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-					<Link
-						href="/join-member"
-						className="inline-flex items-center justify-center rounded-lg bg-[#045e5a] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#034c49]">
-						Join as a Member
-					</Link>
-					<Link
-						href="/join-hospital"
-						className="inline-flex items-center justify-center rounded-lg border border-[#045e5a] px-6 py-3 text-sm font-semibold text-[#045e5a] hover:bg-[#045e5a]/10">
-						Join as a Hospital
-					</Link>
-				</div>
 			</div>
 
-			{/* Soft decorative blobs */}
 			<div
 				aria-hidden
 				className="pointer-events-none absolute -top-24 left-0 -z-10 h-72 w-72 rounded-full blur-3xl"

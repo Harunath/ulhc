@@ -38,7 +38,7 @@ export default function WhyUs() {
 						Why ULHC Matters
 					</span>
 					<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-						Protecting Families. Powering Community Health.
+						Powering Community Health.
 					</h2>
 				</div>
 
@@ -75,22 +75,6 @@ export default function WhyUs() {
 									</p>
 								</div>
 							</div>
-
-							{/* Divider */}
-							<div className="my-6 h-px w-full bg-slate-200" />
-
-							{/* Movement statement */}
-							<blockquote className="rounded-xl bg-slate-50 p-4 text-slate-800 ring-1 ring-slate-200">
-								<p className="text-sm leading-relaxed">
-									With ULHC,{" "}
-									<span className="font-semibold" style={{ color: BRAND }}>
-										VR Kisan Parivaar members are connected to empaneled
-										hospitals
-									</span>{" "}
-									that deliver efficient, affordable, and trusted healthcare
-									services through strong partnerships.
-								</p>
-							</blockquote>
 						</div>
 
 						{/* Value highlights */}
@@ -115,12 +99,6 @@ export default function WhyUs() {
 								title="Efficient Access"
 								desc="Streamlined pathways that ensure timely treatment without barriers."
 							/>
-						</div>
-
-						{/* CTA */}
-						<div className="mt-8 flex flex-col gap-3 sm:flex-row">
-							<LinkPrimary href="/join">Join ULHC</LinkPrimary>
-							<LinkGhost href="/hcp">Explore Benefits</LinkGhost>
 						</div>
 					</motion.div>
 
@@ -182,14 +160,6 @@ export default function WhyUs() {
 									))}
 								</ul>
 							</div>
-
-							{/* Secondary CTA */}
-							<Link
-								href="/partners"
-								className="inline-flex w-full items-center justify-center rounded-lg border px-5 py-2.5 text-sm font-semibold transition"
-								style={{ color: BRAND, borderColor: BRAND }}>
-								Find a Hospital Partner
-							</Link>
 						</div>
 					</motion.aside>
 				</div>

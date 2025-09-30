@@ -10,7 +10,8 @@ export default function Vision() {
 			className="relative overflow-hidden py-20 sm:py-28"
 			style={{
 				background: `linear-gradient(135deg, ${BRAND}, #034240)`,
-			}}>
+			}}
+		>
 			<div className="mx-auto max-w-5xl px-4 text-center">
 				{/* Card container */}
 				<motion.div
@@ -18,7 +19,8 @@ export default function Vision() {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, amount: 0.3 }}
 					transition={{ duration: 0.6, ease: "easeOut" }}
-					className="relative mx-auto rounded-3xl bg-white/10 px-6 py-12 shadow-xl ring-1 ring-white/20 backdrop-blur-md sm:px-10 lg:px-16">
+					className="relative mx-auto rounded-3xl bg-white/10 px-6 py-12 shadow-xl ring-1 ring-white/20 backdrop-blur-md sm:px-10 lg:px-16"
+				>
 					{/* Label */}
 					<span className="inline-block rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white shadow-sm ring-1 ring-white/30">
 						Our Vision
@@ -26,7 +28,7 @@ export default function Vision() {
 
 					{/* Title */}
 					<h2 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-						To create healthier communities
+						A healthier, stronger community
 					</h2>
 
 					{/* Decorative underline */}
@@ -34,8 +36,8 @@ export default function Vision() {
 
 					{/* Description */}
 					<p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
-						Through reliable, accessible surgical care powered by{" "}
-						<span className="font-semibold">strong partnerships</span>.
+						Where no one is denied medical care due to{" "}
+						<span className="font-semibold">cost or distance</span>.
 					</p>
 				</motion.div>
 			</div>

@@ -49,8 +49,8 @@ export default function AboutUlhc() {
 						</h2>
 
 						<p className="mt-5 leading-relaxed text-slate-700">
-							Unity Life Health Care (ULHC), in partnership with VR Kisan
-							Parivaar (VRKP), collaborates with select hospitals to deliver{" "}
+							Unity Life Health Care (ULHC),
+							 collaborates with select hospitals to deliver{" "}
 							<strong>affordable, high-quality surgical care</strong> to members
 							of our trusted communities.
 						</p>

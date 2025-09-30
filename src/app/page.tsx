@@ -2,9 +2,9 @@ import Carousel from "@/components/Home/Carousel";
 import AboutIntro from "@/components/Home/AboutIntro";
 import HcpHighlights from "@/components/Home/HCPHighlights";
 import HowItWorks from "@/components/Home/HowItWorks";
-import Testimonials from "@/components/Home/Testimonials";
+// import Testimonials from "@/components/Home/Testimonials";
 import Partners from "@/components/Home/Partners";
-import Cta from "@/components/Home/CTA";
+// import Cta from "@/components/Home/CTA";
 
 function page() {
 	return (
@@ -13,9 +13,9 @@ function page() {
 			<AboutIntro />
 			<HcpHighlights />
 			<HowItWorks />
-			<Testimonials />
+			{/* <Testimonials /> */}
 			<Partners />
-			<Cta />
+			{/* <Cta /> */}
 		</>
 	);
 }
