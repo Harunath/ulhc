@@ -9,19 +9,16 @@ const steps = [
 		title: "Join ULHC",
 		desc: "Create your account and get your ULHC Health Card in minutes.",
 		icon: <FiUsers className="h-6 w-6 text-[#045e5a]" />,
-		cta: { href: "/join", label: "Get Your Health Card" },
 	},
 	{
 		title: "Access Benefits",
 		desc: "Use pharmacy, lab & radiology discounts and in-patient benefits at partners.",
 		icon: <FiCheckCircle className="h-6 w-6 text-[#045e5a]" />,
-		cta: { href: "/hcp", label: "See What’s Covered" },
 	},
 	{
 		title: "Peace of Mind",
 		desc: "Save on medical expenses and stay protected with trusted medical support.",
 		icon: <FiShield className="h-6 w-6 text-[#045e5a]" />,
-		cta: { href: "/partners", label: "Find a Partner" },
 	},
 ];
 
@@ -86,13 +83,6 @@ export default function HowItWorks() {
 											<p className="mt-1 text-sm leading-relaxed text-slate-600">
 												{step.desc}
 											</p>
-											<div className="mt-4">
-												<Link
-													href={step.cta.href}
-													className="text-sm font-semibold text-[#045e5a] hover:text-[#045e5a]/90">
-													{step.cta.label} →
-												</Link>
-											</div>
 										</div>
 									</div>
 
@@ -102,15 +92,6 @@ export default function HowItWorks() {
 							</motion.li>
 						))}
 					</ol>
-				</div>
-
-				{/* Bottom CTA */}
-				<div className="mt-12 flex items-center justify-center">
-					<Link
-						href="/join"
-						className="inline-flex items-center justify-center rounded-lg bg-[#045e5a] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#045e5a]/80">
-						Start with ULHC Today
-					</Link>
 				</div>
 			</div>
 

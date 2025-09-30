@@ -5,21 +5,21 @@ import {
 	FiUsers,
 	FiFileText,
 	FiCheckCircle,
-	FiClock,
 	FiHeart,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { Children } from "react";
 
 type Variant = "ribbon" | "diagonal" | "wheel";
 
 const BRAND = "#045e5a";
 
-/* ----------------- Updated Values ----------------- */
+/* ----------------- Updated Values (Immediate Access removed) ----------------- */
 const values = [
 	{
 		key: "payments",
 		title: "Guaranteed Payments",
-		desc: "Minimum assured payments from ULHC after patient approval.",
+		desc: "Minimum assured payments after patient approval.",
 		Icon: FiDollarSign,
 		badge: "Assurance",
 	},
@@ -40,7 +40,7 @@ const values = [
 	{
 		key: "support",
 		title: "Admin Support",
-		desc: "ULHC helps with documentation, approvals, and payment processing.",
+		desc: "Help with documentation, approvals, and payment processing.",
 		Icon: FiFileText,
 		badge: "Ease",
 	},
@@ -51,13 +51,6 @@ const values = [
 		Icon: FiCheckCircle,
 		badge: "Clarity",
 	},
-	{
-		key: "access",
-		title: "Immediate Access",
-		desc: "Tap into the VRKP member base for treatments and surgeries.",
-		Icon: FiClock,
-		badge: "Speed",
-	},
 ];
 
 /* ----------------- Main Component ----------------- */
@@ -66,7 +59,6 @@ export default function ValuesULHC({
 }: {
 	variant?: Variant;
 }) {
-	// if (variant === "diagonal") return <DiagonalTiles />;
 	if (variant === "diagonal")
 		return <div>DiagonalTiles variant not implemented</div>;
 	if (variant === "wheel")
@@ -94,7 +86,7 @@ function RibbonMosaic() {
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				<Header
 					title="Value Proposition for Hospitals"
-					subtitle="ULHC offers hospitals reliable revenue, higher utilization, and a trusted partnership."
+					subtitle="Offers hospitals reliable revenue, higher utilization, and a trusted partnership."
 				/>
 
 				{/* ribbon lanes */}
@@ -109,10 +101,9 @@ function RibbonMosaic() {
 						<ValueCard item={values[2]} />
 						<ValueCard item={values[3]} />
 					</RibbonLane>
-					{/* Lane 3 */}
+					{/* Lane 3 (single card, centered, no empty space) */}
 					<RibbonLane tilt={-1}>
 						<ValueCard item={values[4]} />
-						<ValueCard item={values[5]} />
 					</RibbonLane>
 				</div>
 			</div>
@@ -129,6 +120,10 @@ function RibbonLane({
 	tilt?: number;
 	offset?: boolean;
 }) {
+	const count = Children.count(children);
+	const gridCols = count === 1 ? "sm:grid-cols-1" : "sm:grid-cols-2";
+	const centerWhenSingle = count === 1 ? "max-w-xl mx-auto" : "";
+
 	return (
 		<div
 			className={[
@@ -142,7 +137,7 @@ function RibbonLane({
 				backdropFilter: "blur(2px)",
 			}}>
 			<div
-				className="grid items-stretch gap-4 sm:grid-cols-2"
+				className={`grid items-stretch gap-4 ${gridCols} ${centerWhenSingle}`}
 				style={{ transform: `rotate(${-tilt}deg)` }}>
 				{children}
 			</div>

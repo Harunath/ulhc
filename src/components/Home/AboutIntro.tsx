@@ -44,11 +44,7 @@ export default function AboutIntro() {
 								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								Free second medical opinion from approved specialists.
 							</li>
-							<li className="flex items-start gap-3">
-								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
-								In-patient benefits (up to 6 days): doctor’s fees, nursing, OT,
-								and general ward/bed.
-							</li>
+
 							<li className="flex items-start gap-3">
 								<span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#045e5a]" />
 								Assistance in sourcing surgical implants & materials.
@@ -67,22 +63,6 @@ export default function AboutIntro() {
 								className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-[#045e5a] ring-1 ring-inset ring-[#045e5a]/20 hover:bg-[#045e5a]/10">
 								Explore the Health Care Program
 							</Link>
-						</div>
-
-						{/* Trust badges / quick stats */}
-						<div className="mt-8 grid grid-cols-2 gap-4 sm:max-w-lg">
-							<div className="rounded-xl border border-slate-200 p-4">
-								<p className="text-2xl font-bold text-slate-900">
-									Up to 6 Days
-								</p>
-								<p className="text-sm text-slate-600">In-patient benefits</p>
-							</div>
-							<div className="rounded-xl border border-slate-200 p-4">
-								<p className="text-2xl font-bold text-slate-900">2nd Opinion</p>
-								<p className="text-sm text-slate-600">
-									From approved specialists
-								</p>
-							</div>
 						</div>
 					</motion.div>
 
@@ -104,7 +84,7 @@ export default function AboutIntro() {
 						/>
 						<div className="relative overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-sm">
 							<Image
-								src="https://res.cloudinary.com/dk0smdu0d/image/upload/v1756832323/wp8003033_krtgt7.jpg"
+								src="https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711343/health-insurance-bg_jv8kmk.webp"
 								alt="ULHC — trusted healthcare support"
 								width={1200}
 								height={900}
