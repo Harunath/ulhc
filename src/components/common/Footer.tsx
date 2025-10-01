@@ -85,32 +85,18 @@ export default function Footer() {
 								<span className="font-medium">
 									🏢 Unity Life Health Care (ULHC)
 								</span>
-								<span className="text-sm ">
-									Hyderabad, Telangana, India
-								</span>
+								<span className="text-sm ">Hyderabad, Telangana, India</span>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 
-			{/* Bottom bar */}
 			<div className="border-t border-white/20 bg-[#045e5a]/90">
-				<div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 text-center text-xs sm:flex-row sm:text-left">
+				<div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 py-4 text-center text-xs">
 					<p>
 						© {new Date().getFullYear()} Unity Life Health Care. All rights
 						reserved.
-					</p>
-					<p>Designed with ❤️ for healthier communities.</p>
-					<p>
-						Developed by{" "}
-						<a
-							href="https://hsdev.in"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="font-semibold hover:underline hover:text-white/80 transition">
-							HS Dev
-						</a>
 					</p>
 				</div>
 			</div>
