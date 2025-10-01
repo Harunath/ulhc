@@ -80,9 +80,15 @@ export default function Footer() {
 					<div>
 						<h4 className="text-sm font-semibold">Contact</h4>
 						<ul className="mt-4 space-y-2 text-sm">
-							<li>📞 [Phone Number]</li>
-							<li>📧 unitylifehealthcare@gmail.com</li>
-							<li>🏢 Unity Life Health Care (ULHC)</li>
+							<li>📧 info@unitylifehealthcare.com</li>
+							<li className="flex flex-col">
+								<span className="font-medium">
+									🏢 Unity Life Health Care (ULHC)
+								</span>
+								<span className="text-sm ">
+									Hyderabad, Telangana, India
+								</span>
+							</li>
 						</ul>
 					</div>
 				</div>

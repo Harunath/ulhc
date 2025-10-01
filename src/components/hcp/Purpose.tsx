@@ -84,16 +84,6 @@ export default function Purpose() {
 						</ol>
 					</div>
 
-					{/* CTA */}
-					<div className="mt-8 flex flex-col gap-3 sm:flex-row">
-						<Link
-							href="/join"
-							className="inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition sm:w-auto"
-							style={{ backgroundColor: BRAND }}>
-							Join as a Member
-						</Link>
-					</div>
-
 					{/* Subtle bottom accent */}
 					<div
 						className="mt-8 h-1 w-20 rounded-full"

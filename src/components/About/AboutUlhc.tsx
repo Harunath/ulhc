@@ -49,10 +49,9 @@ export default function AboutUlhc() {
 						</h2>
 
 						<p className="mt-5 leading-relaxed text-slate-700">
-							Unity Life Health Care (ULHC),
-							 collaborates with select hospitals to deliver{" "}
-							<strong>affordable, high-quality surgical care</strong> to members
-							of our trusted communities.
+							Unity Life Health Care (ULHC), collaborates with select hospitals
+							to deliver <strong>affordable, high-quality surgical care</strong>{" "}
+							to members of our trusted communities.
 						</p>
 
 						<p className="mt-4 leading-relaxed text-slate-700">
@@ -109,12 +108,6 @@ export default function AboutUlhc() {
 								style={{ color: BRAND, borderColor: BRAND }}>
 								Join Our Community
 							</Link> */}
-							<Link
-								href="/partners"
-								className="inline-flex w-full items-center justify-center rounded-lg border px-5 py-2.5 text-sm font-semibold transition sm:w-auto"
-								style={{ color: BRAND, borderColor: `${BRAND}66` }}>
-								Find Partner Hospitals
-							</Link>
 						</div>
 					</motion.div>
 
@@ -172,16 +165,6 @@ export default function AboutUlhc() {
 										</li>
 									))}
 								</ul>
-							</div>
-
-							{/* Read more */}
-							<div className="hidden sm:block">
-								<Link
-									href="/about"
-									className="inline-flex w-full items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition"
-									style={{ backgroundColor: BRAND }}>
-									Learn more about ULHC
-								</Link>
 							</div>
 						</div>
 					</motion.div>
