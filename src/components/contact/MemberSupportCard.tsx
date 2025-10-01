@@ -50,24 +50,6 @@ export default function MemberSupportCard() {
 					<Li>Fast responses from our support team</Li>
 				</ul>
 
-				{/* CTAs */}
-				<div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-					<Link
-						href="/join"
-						className="group inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition sm:w-auto"
-						style={{ backgroundColor: BRAND }}>
-						Join as a Member
-						<FiArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-					</Link>
-
-					<Link
-						href="/hcp"
-						className="inline-flex items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold transition sm:w-auto"
-						style={{ borderColor: BRAND, color: BRAND }}>
-						Explore Member Benefits
-					</Link>
-				</div>
-
 				{/* Bottom accent */}
 				<div className="mt-8 flex">
 					<div
@@ -79,8 +61,6 @@ export default function MemberSupportCard() {
 		</motion.section>
 	);
 }
-
-/* ---------- Bits ---------- */
 
 function Li({ children }: { children: React.ReactNode }) {
 	return (
