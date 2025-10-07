@@ -17,14 +17,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "Unity Life Health Care",
 	description: "Providing comprehensive health care services",
-	openGraph: {
-		title: "Unity Life Health Care",
-		description: "Providing comprehensive health care services",
-		url: "https://www.unitylifehealthcare.com",
-
-		siteName: "Unity Life Health Care",
-		type: "website",
-	},
 };
 
 export default function RootLayout({
