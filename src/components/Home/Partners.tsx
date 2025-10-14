@@ -11,9 +11,8 @@ type Partner = {
 	name: string;
 	logo?: string;
 	category: "Hospital" | "Lab" | "Pharmacy" | "Radiology";
-	type?: string; // Govt / Private / Trust
+	type?: string;
 	address: string;
-	contact: string;
 	email?: string;
 };
 
@@ -24,7 +23,6 @@ const partners: Partner[] = [
 		type: "Private",
 		address:
 			"Alekhya Towers, Mytri Nagar, Rajiv Shetti Nagar, L. B. Nagar, Kharmanghat, Hyderabad, Telangana",
-		contact: "9085108108",
 		logo: defaultLogo,
 	},
 	{
@@ -33,7 +31,6 @@ const partners: Partner[] = [
 		type: "Private",
 		address:
 			"H756+F35, Indresham Rd, Citizens colony, Patancheruvu, Hyderabad-502319, Telangana",
-		contact: "",
 		logo: defaultLogo,
 	},
 	{
@@ -42,7 +39,6 @@ const partners: Partner[] = [
 		type: "Private",
 		address:
 			"3-13-2 Plot no 6, Mallikarjun Nagar Opp to Uppal Bus depot Peerzadiguda, Uppal, Hyderabad-500039, Telangana",
-		contact: "9154993190",
 		logo: defaultLogo,
 	},
 	{
@@ -51,7 +47,6 @@ const partners: Partner[] = [
 		type: "Private",
 		address:
 			"Murthy Mansion, Hmda Maitrivanam, H.No;8-3-214/2, Ameerpet, Hyderabad, 500038, Telangana",
-		contact: "09248112284",
 		logo: defaultLogo,
 	},
 	{
@@ -60,7 +55,6 @@ const partners: Partner[] = [
 		type: "Private",
 		address:
 			"Tulasi Hospitals Ecil, Kushaiguda Industrial Area, Kushaiguda, Secunderabad, 500062, Telangana",
-		contact: "9994288800",
 		logo: defaultLogo,
 	},
 ];
@@ -143,16 +137,6 @@ export default function Partners() {
 									</span>
 								</div>
 
-								{p.contact && (
-									<p className="mt-3 text-sm text-gray-700">
-										📞{" "}
-										<a
-											href={`tel:${p.contact}`}
-											className="font-medium text-[#045e5a] hover:underline">
-											{p.contact}
-										</a>
-									</p>
-								)}
 								{p.email && (
 									<p className="mt-1 text-sm text-gray-700">
 										✉{" "}
