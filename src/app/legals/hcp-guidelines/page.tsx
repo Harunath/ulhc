@@ -173,7 +173,6 @@ export default function HcpGuidelines() {
 				<h2 className="text-xl font-semibold mb-2">
 					7. Contacting Unity Life Health Care
 				</h2>
-				<p>Phone: +91-9000366654</p>
 				<p>Email: info@unitylifehealthcare.com</p>
 				<p>Website: www.unitylifehealthcare.com</p>
 			</section>
