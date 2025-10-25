@@ -1,0 +1,72 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Member {
+  id        String   @id @default(uuid())
+  phone     String   @unique
+  email     String   @unique
+  fullname  String
+  aadhaar   String   @unique
+
+  address   String
+  city      String
+  state     String
+  pincode   String
+
+  vrkpId    String   @unique
+
+
+  healthRecords HealthRecord?
+
+  programId  String
+  programs  Program @relation(fields: [programId], references: [id])
+
+  programsStartedAt DateTime @default(now())
+  programsExpireAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([phone])
+  @@index([email])
+  @@index([aadhaar])
+}
+
+model Program {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+
+  members     Member[]
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+
+model HealthRecord {
+  id          String           @id @default(uuid())
+
+  memberId    String   @unique
+  member      Member           @relation(fields: [memberId], references: [id])
+
+  date        DateTime
+
+  data        Json
+
+  notes       String?
+
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([memberId])
+
+}
