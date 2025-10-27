@@ -105,9 +105,9 @@ export default function TermsAndConditions() {
 							If you have questions or concerns about these Terms, please
 							contact us at{" "}
 							<a
-								href="mailto:contact@unitylifehealthcare.com"
+								href="mailto:help@unitylifehealthcare.com"
 								className="text-[#045e5a] underline">
-								contact@unitylifehealthcare.com
+								help@unitylifehealthcare.com
 							</a>
 							, or visit:{" "}
 							<a
