@@ -157,9 +157,9 @@ export default function PrivacyPolicy() {
 				<p>
 					If you have any questions, please contact us at:{" "}
 					<a
-						href="mailto:contact@unitylifehealthcare.com"
+						href="mailto:help@unitylifehealthcare.com"
 						className="text-blue-600 underline">
-						contact@unitylifehealthcare.com
+						help@unitylifehealthcare.com
 					</a>
 				</p>
 			</Section>

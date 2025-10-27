@@ -65,7 +65,7 @@ export default function ContactSection() {
 								<DetailRow
 									icon={<FiMail className="h-5 w-5" />}
 									title="Email"
-									value="info@unitylifehealthcare.com"
+									value="help@unitylifehealthcare.com"
 								/>
 								<DetailRow
 									icon={<FiGlobe className="h-5 w-5" />}
