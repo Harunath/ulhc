@@ -80,7 +80,7 @@ export default function Footer() {
 					<div>
 						<h4 className="text-sm font-semibold">Contact</h4>
 						<ul className="mt-4 space-y-2 text-sm">
-							<li>📧 info@unitylifehealthcare.com</li>
+							<li>📧 help@unitylifehealthcare.com</li>
 							<li className="flex flex-col">
 								<span className="font-medium">
 									🏢 Unity Life Health Care (ULHC)
@@ -93,10 +93,21 @@ export default function Footer() {
 			</div>
 
 			<div className="border-t border-white/20 bg-[#045e5a]/90">
-				<div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 py-4 text-center text-xs">
+				<div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-4 text-center text-xs text-white">
 					<p>
 						© {new Date().getFullYear()} Unity Life Health Care. All rights
 						reserved.
+					</p>
+					<p>
+						Developed by{" "}
+						<a
+							href="https://www.vrtechforz.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-cyan-400 hover:underline">
+							VR Tech Forz
+						</a>
+						.
 					</p>
 				</div>
 			</div>
