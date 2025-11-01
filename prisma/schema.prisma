@@ -8,6 +8,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model PrefillSession {
+  id          String    @id @default(uuid())
+
+  // Who sent the hook (e.g. "vrkp")
+  partnerId   String
+  // The member's id in the partner (VRKP)
+  vrkpId      String
+
+  // Short-lived loginless handoff token (in URL)
+  token       String    @unique
+  payload     Json
+
+  // Control & observability
+  attempts    Int       @default(0)       // how many times we issued/rotated a token
+  consumed    Boolean   @default(false)   // set true after register-page consumes it
+  expiresAt   DateTime
+  lastIp      String?                      // optional: last caller IP
+  lastUserAgent String?                    // optional: last UA
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Enforce ONE row per VRKP member per partner
+  @@unique([partnerId, vrkpId])
+  @@index([vrkpId])
+  @@index([expiresAt])
+}
+
+enum Gender {
+  Male
+  Female
+  Others
+}
 
 model Member {
   id        String   @id @default(uuid())
@@ -15,12 +48,13 @@ model Member {
   email     String   @unique
   fullname  String
   aadhaar   String   @unique
-
+  gender    Gender   
   address   String
   city      String
   state     String
   pincode   String
 
+  dob       DateTime
   vrkpId    String   @unique
 
 
