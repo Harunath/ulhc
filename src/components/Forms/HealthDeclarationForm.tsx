@@ -3,6 +3,10 @@
 import { useState } from "react";
 
 export type ULHCFormData = {
+	address: string;
+	city: string;
+	state: string;
+	pincode: string;
 	healthHistory: string[];
 	healthHistoryOtherText?: string;
 	medications: string;
@@ -10,21 +14,25 @@ export type ULHCFormData = {
 	tobaccoUse: "Current" | "Former" | "Never" | "";
 	alcoholUse: "Regular" | "Occasional" | "None" | "";
 	exercise: "Regular" | "Occasional" | "None" | "";
-	foodHabits: "Vegetarian" | "Non-Vegetarian" | "Vegan" | "";
+	foodHabits: "Veg" | "Non-Veg" | "";
 	insuranceStatus: "NeverApplied" | "ExistingPolicy" | "PastProposalIssue" | "";
 	insuranceDetails?: string;
 	consent: boolean;
 };
 
-export default function HealthDeclarationForm() {
-	const memberInfo = {
-		fullNameAsPerAadhaar: "John Doe",
-		dob: "1995-07-16",
-		mobile: "9876543210",
-		email: "john.doe@example.com",
-		aadhar: "123456789012",
+export default function HealthDeclarationForm({
+	memberInfo,
+}: {
+	memberInfo: {
+		vrkpId: string;
+		name: string;
+		dob: string;
+		mobile: string;
+		email: string;
+		aadhar: string;
+		gender: string;
 	};
-
+}) {
 	const HEALTH_HISTORY_OPTIONS = [
 		"Diabetes / High Blood Sugar",
 		"High Blood Pressure / Heart Disease / Stroke",
@@ -42,6 +50,10 @@ export default function HealthDeclarationForm() {
 	];
 
 	const [form, setForm] = useState<ULHCFormData>({
+		address: "",
+		city: "",
+		state: "",
+		pincode: "",
 		healthHistory: [],
 		healthHistoryOtherText: "",
 		medications: "",
@@ -107,7 +119,35 @@ export default function HealthDeclarationForm() {
 		setSubmitting(true);
 
 		try {
+			console.log("memberInfo:", memberInfo);
 			console.log("Form submitted:", form);
+			console.log("gender", memberInfo.gender);
+			const res = await fetch("/api/register", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					...memberInfo,
+					address: form.address,
+					city: form.city,
+					state: form.state,
+					pincode: form.pincode,
+					meta: JSON.stringify({
+						healthHistory: form.healthHistory,
+						healthHistoryOtherText: form.healthHistoryOtherText,
+						medications: form.medications,
+						allergies: form.allergies,
+						tobaccoUse: form.tobaccoUse,
+						alcoholUse: form.alcoholUse,
+						exercise: form.exercise,
+						foodHabits: form.foodHabits,
+						insuranceStatus: form.insuranceStatus,
+						insuranceDetails: form.insuranceDetails,
+						consent: form.consent,
+					}),
+				}),
+			});
 			alert("Form submitted successfully!");
 		} catch (err) {
 			console.error(err);
@@ -119,284 +159,338 @@ export default function HealthDeclarationForm() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="mx-auto my-16 max-w-4xl rounded-2xl bg-slate-50 shadow-2xl p-8 border border-gray-100">
-			<h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
-				ULHC – Member Health Declaration & Consent Form
+			className="mx-auto my-20 max-w-3xl p-6 space-y-6 bg-white rounded-xl shadow">
+			<h1 className="text-2xl font-semibold">
+				ULHC {"–"} Member Health Declaration & Consent Form
 			</h1>
 
-			{/* Section Wrapper */}
-			<div className="space-y-10">
-				{/* Member Info */}
-				<section className="space-y-4">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						Member Information
-					</h2>
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						{Object.entries(memberInfo).map(([key, value]) => (
-							<div key={key}>
-								<label className="block text-sm font-medium text-gray-700 capitalize">
-									{key.replace(/([A-Z])/g, " $1")}
-								</label>
-								<input
-									type="text"
-									value={value}
-									disabled
-									className="mt-1 w-full rounded-lg border border-gray-300 bg-gray-100 px-3 py-2 text-gray-600"
-								/>
-							</div>
-						))}
+			{/* Member Info */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">Member Information</h2>
+				{Object.entries(memberInfo).map(([key, value]) => (
+					<div key={key}>
+						<label className="block text-sm font-medium capitalize">
+							{key}
+						</label>
+						<input
+							type="text"
+							value={value}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-gray-100"
+						/>
 					</div>
-				</section>
+				))}
+			</section>
 
-				{/* Insurance Section */}
-				<section className="space-y-4">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						1️⃣ Past Insurance / Health Proposals
-					</h2>
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">Address Details</h2>
+				<div className="grid grid-cols-1 gap-2">
+					<input
+						type="text"
+						placeholder="Address"
+						value={form.address}
+						onChange={(e) => setForm({ ...form, address: e.target.value })}
+						className="w-full rounded-lg border px-3 py-2"
+					/>
+					<input
+						type="text"
+						placeholder="City"
+						value={form.city}
+						onChange={(e) => setForm({ ...form, city: e.target.value })}
+						className="w-full rounded-lg border px-3 py-2"
+					/>
+					<input
+						type="text"
+						placeholder="State"
+						value={form.state}
+						onChange={(e) => setForm({ ...form, state: e.target.value })}
+						className="w-full rounded-lg border px-3 py-2"
+					/>
+					<input
+						type="text"
+						placeholder="PIN Code"
+						value={form.pincode}
+						onChange={(e) => setForm({ ...form, pincode: e.target.value })}
+						className="w-full rounded-lg border px-3 py-2"
+					/>
+				</div>
+			</section>
 
-					<div className="space-y-3 text-gray-700">
-						{/* Radio 1 */}
-						<label className="flex items-center gap-2">
+			{/* Health History */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">
+					1) Health History (select all that apply)
+				</h2>
+				<div className="grid grid-cols-1 gap-2">
+					{HEALTH_HISTORY_OPTIONS.map((opt) => (
+						<label key={opt} className="flex items-center gap-2">
+							<input
+								type="checkbox"
+								checked={form.healthHistory.includes(opt)}
+								onChange={() => toggleHealthHistory(opt)}
+							/>
+							{opt}
+						</label>
+					))}
+				</div>
+				{form.healthHistory.includes("Other long-term condition") && (
+					<input
+						type="text"
+						placeholder="Describe other condition"
+						value={form.healthHistoryOtherText}
+						onChange={(e) =>
+							setForm({ ...form, healthHistoryOtherText: e.target.value })
+						}
+						className="mt-1 w-full rounded-lg border px-3 py-2"
+					/>
+				)}
+				{errors.healthHistory && (
+					<p className="text-sm text-red-600">{errors.healthHistory}</p>
+				)}
+				{errors.healthHistoryOtherText && (
+					<p className="text-sm text-red-600">
+						{errors.healthHistoryOtherText}
+					</p>
+				)}
+			</section>
+
+			{/* Medications & Allergies */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">
+					2) Current Medications & Allergies
+				</h2>
+				<textarea
+					placeholder="Current prescribed medications"
+					value={form.medications}
+					onChange={(e) => setForm({ ...form, medications: e.target.value })}
+					className="w-full rounded-lg border px-3 py-2"
+				/>
+				<textarea
+					placeholder="Allergies (drugs/food/other)"
+					value={form.allergies}
+					onChange={(e) => setForm({ ...form, allergies: e.target.value })}
+					className="w-full rounded-lg border px-3 py-2"
+				/>
+			</section>
+
+			{/* Lifestyle */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">3) Lifestyle & Habits</h2>
+
+				{/* Tobacco */}
+				<div>
+					<p className="font-medium">Tobacco Use</p>
+					{["Current", "Former", "Never"].map((opt) => (
+						<label key={opt} className="mr-4 flex items-center gap-1">
 							<input
 								type="radio"
-								name="insuranceStatus"
-								checked={form.insuranceStatus === "NeverApplied"}
+								name="tobaccoUse"
+								checked={form.tobaccoUse === opt}
 								onChange={() =>
 									setForm({
 										...form,
-										insuranceStatus: "NeverApplied",
-										insuranceDetails: "",
+										tobaccoUse: opt as ULHCFormData["tobaccoUse"],
 									})
 								}
-								className="mt-0.5 accent-blue-600"
 							/>
-							<span>I have never applied for health/life insurance before</span>
+							{opt}
 						</label>
-
-						{/* Radio 2 */}
-						<label className="flex items-center gap-2">
-							<input
-								type="radio"
-								name="insuranceStatus"
-								checked={form.insuranceStatus === "ExistingPolicy"}
-								onChange={() =>
-									setForm({ ...form, insuranceStatus: "ExistingPolicy" })
-								}
-								className="mt-0.5 accent-blue-600"
-							/>
-							<span>
-								I have an existing health/life insurance policy (please specify)
-							</span>
-						</label>
-
-						{form.insuranceStatus === "ExistingPolicy" && (
-							<input
-								type="text"
-								placeholder="Policy name, insurer, year, exclusions, reasons"
-								value={form.insuranceDetails}
-								onChange={(e) =>
-									setForm({ ...form, insuranceDetails: e.target.value })
-								}
-								className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-							/>
-						)}
-
-						{/* Radio 3 */}
-						<label className="flex items-center gap-2">
-							<input
-								type="radio"
-								name="insuranceStatus"
-								checked={form.insuranceStatus === "PastProposalIssue"}
-								onChange={() =>
-									setForm({ ...form, insuranceStatus: "PastProposalIssue" })
-								}
-								className="mt-0.5 accent-blue-600"
-							/>
-							<span>
-								A past insurance proposal was declined / postponed / accepted
-								with exclusions
-							</span>
-						</label>
-
-						{errors.insuranceStatus && (
-							<p className="text-sm text-red-600">{errors.insuranceStatus}</p>
-						)}
-						{errors.insuranceDetails && (
-							<p className="text-sm text-red-600">{errors.insuranceDetails}</p>
-						)}
-					</div>
-				</section>
-
-				{/* Health History */}
-				<section className="space-y-4">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						2️⃣ Health History
-					</h2>
-
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
-						{HEALTH_HISTORY_OPTIONS.map((opt) => (
-							<label key={opt} className="flex items-center gap-2">
-								<input
-									type="checkbox"
-									checked={form.healthHistory.includes(opt)}
-									onChange={() => toggleHealthHistory(opt)}
-									className="mt-0.5 accent-blue-600"
-								/>
-								<span>{opt}</span>
-							</label>
-						))}
-					</div>
-
-					{form.healthHistory.includes("Other long-term condition") && (
-						<input
-							type="text"
-							placeholder="Describe other condition"
-							value={form.healthHistoryOtherText}
-							onChange={(e) =>
-								setForm({ ...form, healthHistoryOtherText: e.target.value })
-							}
-							className="mt-2 w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-						/>
-					)}
-
-					{errors.healthHistory && (
-						<p className="text-sm text-red-600">{errors.healthHistory}</p>
-					)}
-					{errors.healthHistoryOtherText && (
-						<p className="text-sm text-red-600">
-							{errors.healthHistoryOtherText}
-						</p>
-					)}
-				</section>
-
-				{/* Medications & Allergies */}
-				<section className="space-y-3">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						3️⃣ Current Medications & Allergies
-					</h2>
-					<textarea
-						placeholder="Current prescribed medications"
-						value={form.medications}
-						onChange={(e) => setForm({ ...form, medications: e.target.value })}
-						className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-					/>
-					<textarea
-						placeholder="Allergies (drugs/food/other)"
-						value={form.allergies}
-						onChange={(e) => setForm({ ...form, allergies: e.target.value })}
-						className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-					/>
-				</section>
-
-				{/* Lifestyle */}
-				<section className="space-y-3">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						4️⃣ Lifestyle & Habits
-					</h2>
-
-					{[
-						{
-							label: "Tobacco Use",
-							name: "tobaccoUse",
-							options: ["Current", "Former", "Never"],
-						},
-						{
-							label: "Alcohol Use",
-							name: "alcoholUse",
-							options: ["Regular", "Occasional", "None"],
-						},
-						{
-							label: "Exercise",
-							name: "exercise",
-							options: ["Regular", "Occasional", "None"],
-						},
-						{
-							label: "Food Habits",
-							name: "foodHabits",
-							options: ["Vegetarian", "Non-Vegetarian", "Vegan"],
-						},
-					].map((group) => (
-						<div key={group.name}>
-							<p className="font-semibold text-gray-800">{group.label}</p>
-							<div className="flex flex-wrap gap-4 mt-1">
-								{group.options.map((opt) => (
-									<label key={opt} className="flex items-center gap-1">
-										<input
-											type="radio"
-											name={group.name}
-											checked={form[group.name as keyof ULHCFormData] === opt}
-											onChange={() =>
-												setForm({
-													...form,
-													[group.name]: opt,
-												})
-											}
-										/>
-										{opt}
-									</label>
-								))}
-							</div>
-							{errors[group.name] && (
-								<p className="text-sm text-red-600">{errors[group.name]}</p>
-							)}
-						</div>
 					))}
-				</section>
-
-				{/* Declaration */}
-				<section className="space-y-3">
-					<h2 className="text-xl font-semibold text-gray-900 border-b pb-2">
-						5️⃣ Declaration & Consent
-					</h2>
-					<p className="text-gray-700 text-sm leading-relaxed">
-						I declare that the information I have given is true to the best of
-						my knowledge. I understand this will help ULHC provide me with the
-						right healthcare support and membership benefits. I allow ULHC to
-						keep my health information safe and use it only for my care, in line
-						with Indian laws.
-					</p>
-					<label className="flex items-center gap-2">
-						<input
-							type="checkbox"
-							checked={form.consent}
-							onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-						/>
-						<span>I agree</span>
-					</label>
-					{errors.consent && (
-						<p className="text-sm text-red-600">{errors.consent}</p>
+					{errors.tobaccoUse && (
+						<p className="text-sm text-red-600">{errors.tobaccoUse}</p>
 					)}
-				</section>
+				</div>
 
-				{/* Actions */}
-				<div className="flex justify-center gap-4 pt-6">
-					<button
-						type="submit"
-						disabled={submitting}
-						className="rounded-lg bg-[#045e5a] text-white px-6 py-2 font-medium  transition disabled:opacity-50">
-						{submitting ? "Submitting..." : "Submit"}
-					</button>
-					<button
-						type="button"
-						onClick={() =>
+				{/* Alcohol */}
+				<div>
+					<p className="font-medium">Alcohol Use</p>
+					{["Regular", "Occasional", "None"].map((opt) => (
+						<label key={opt} className="mr-4 flex items-center gap-1">
+							<input
+								type="radio"
+								name="alcoholUse"
+								checked={form.alcoholUse === opt}
+								onChange={() =>
+									setForm({
+										...form,
+										alcoholUse: opt as ULHCFormData["alcoholUse"],
+									})
+								}
+							/>
+							{opt}
+						</label>
+					))}
+					{errors.alcoholUse && (
+						<p className="text-sm text-red-600">{errors.alcoholUse}</p>
+					)}
+				</div>
+
+				{/* Exercise */}
+				<div>
+					<p className="font-medium">Exercise</p>
+					{["Regular", "Occasional", "None"].map((opt) => (
+						<label key={opt} className="mr-4 flex items-center gap-1">
+							<input
+								type="radio"
+								name="exercise"
+								checked={form.exercise === opt}
+								onChange={() =>
+									setForm({
+										...form,
+										exercise: opt as ULHCFormData["exercise"],
+									})
+								}
+							/>
+							{opt}
+						</label>
+					))}
+					{errors.exercise && (
+						<p className="text-sm text-red-600">{errors.exercise}</p>
+					)}
+				</div>
+
+				{/* Food Habits */}
+				<div>
+					<p className="font-medium">Food Habits</p>
+					{["Veg", "Non-Veg"].map((opt) => (
+						<label key={opt} className="mr-4 flex items-center gap-1">
+							<input
+								type="radio"
+								name="foodHabits"
+								checked={form.foodHabits === opt}
+								onChange={() =>
+									setForm({
+										...form,
+										foodHabits: opt as ULHCFormData["foodHabits"],
+									})
+								}
+							/>
+							{opt}
+						</label>
+					))}
+					{errors.foodHabits && (
+						<p className="text-sm text-red-600">{errors.foodHabits}</p>
+					)}
+				</div>
+			</section>
+
+			{/* Insurance */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">
+					4) Past Insurance / Health Proposals
+				</h2>
+				<label className="flex items-center gap-2">
+					<input
+						type="radio"
+						name="insuranceStatus"
+						checked={form.insuranceStatus === "NeverApplied"}
+						onChange={() =>
 							setForm({
-								healthHistory: [],
-								healthHistoryOtherText: "",
-								medications: "",
-								allergies: "",
-								tobaccoUse: "",
-								alcoholUse: "",
-								exercise: "",
-								foodHabits: "",
-								insuranceStatus: "",
+								...form,
+								insuranceStatus: "NeverApplied",
 								insuranceDetails: "",
-								consent: false,
 							})
 						}
-						className="rounded-lg border border-gray-400 px-6 py-2 text-gray-700 hover:bg-gray-100 transition">
-						Reset
-					</button>
-				</div>
+					/>
+					I have never applied for health/life insurance before
+				</label>
+				<label className="flex items-center gap-2">
+					<input
+						type="radio"
+						name="insuranceStatus"
+						checked={form.insuranceStatus === "ExistingPolicy"}
+						onChange={() =>
+							setForm({ ...form, insuranceStatus: "ExistingPolicy" })
+						}
+					/>
+					I have an existing health/life insurance policy (please specify)
+				</label>
+				{form.insuranceStatus === "ExistingPolicy" && (
+					<input
+						type="text"
+						placeholder="Policy name/insurer, year, exclusions, reasons"
+						value={form.insuranceDetails}
+						onChange={(e) =>
+							setForm({ ...form, insuranceDetails: e.target.value })
+						}
+						className="w-full rounded-lg border px-3 py-2"
+					/>
+				)}
+				<label className="flex items-center gap-2">
+					<input
+						type="radio"
+						name="insuranceStatus"
+						checked={form.insuranceStatus === "PastProposalIssue"}
+						onChange={() =>
+							setForm({ ...form, insuranceStatus: "PastProposalIssue" })
+						}
+					/>
+					A past insurance proposal was declined / postponed / accepted with
+					exclusions
+				</label>
+				{errors.insuranceStatus && (
+					<p className="text-sm text-red-600">{errors.insuranceStatus}</p>
+				)}
+				{errors.insuranceDetails && (
+					<p className="text-sm text-red-600">{errors.insuranceDetails}</p>
+				)}
+			</section>
+
+			{/* Declaration */}
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">5) Declaration & Consent</h2>
+				<p className="text-sm">
+					I declare that the information I have given is true to the best of my
+					knowledge. I understand this will help ULHC provide me with the right
+					healthcare support and membership benefits. I allow ULHC to keep my
+					health information safe and use it only for my care, in line with
+					Indian laws.
+				</p>
+				<label className="flex items-center gap-2">
+					<input
+						type="checkbox"
+						checked={form.consent}
+						onChange={(e) => setForm({ ...form, consent: e.target.checked })}
+					/>
+					I agree
+				</label>
+				{errors.consent && (
+					<p className="text-sm text-red-600">{errors.consent}</p>
+				)}
+			</section>
+
+			{/* Actions */}
+			<div className="flex gap-4">
+				<button
+					type="submit"
+					disabled={submitting}
+					className="rounded-lg bg-black text-white px-5 py-2 disabled:opacity-50">
+					{submitting ? "Submitting..." : "Submit"}
+				</button>
+				<button
+					type="button"
+					onClick={() =>
+						setForm({
+							address: "",
+							city: "",
+							state: "",
+							pincode: "",
+							healthHistory: [],
+							healthHistoryOtherText: "",
+							medications: "",
+							allergies: "",
+							tobaccoUse: "",
+							alcoholUse: "",
+							exercise: "",
+							foodHabits: "",
+							insuranceStatus: "",
+							insuranceDetails: "",
+							consent: false,
+						})
+					}
+					className="rounded-lg border px-5 py-2">
+					Reset
+				</button>
 			</div>
 		</form>
 	);
