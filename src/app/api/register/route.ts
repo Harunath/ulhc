@@ -83,9 +83,14 @@ export const POST = async (req: NextRequest) => {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					to: member.email,
-					subject: "Registration Successful",
-					body: `Dear ${member.fullname},\n\nYour registration was successful. Your Member ID is ${member.id}.\n\nThank you for joining us!\n\nBest regards,\nUnity Life Healthcare Team`,
+					email: member.email,
+					name: member.fullname,
+					dob: member.dob.getDate(),
+					aadhaar: member.aadhaar,
+					address: member.address,
+					vrkpId: member.vrkpId,
+					activationDate: member.programsStartedAt.getDate(),
+					expireDate: member.programsExpireAt.getDate(),
 				}),
 			}
 		);
