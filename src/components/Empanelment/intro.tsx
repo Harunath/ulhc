@@ -129,13 +129,13 @@ export default function Intro() {
 	);
 
 	return (
-		<div className="bg-neutral-50 mt-10">
+		<div className="bg-neutral-50 pt-20">
 			<section className="relative overflow-hidden">
 				<div
 					aria-hidden
 					className="pointer-events-none absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-[#045e5a0f] to-transparent"
 				/>
-				<div className="mx-auto max-w-7xl px-6 pt-16 pb-14 lg:px-8">
+				<div className="mx-auto max-w-7xl px-6 pt-10 pb-14 lg:px-8">
 					<LazyMotion features={domAnimation}>
 						<m.div
 							initial="hidden"
