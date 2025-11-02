@@ -8,7 +8,7 @@ const BRAND = "#045e5a";
 
 export default function ContactSection() {
 	return (
-		<section className="relative bg-neutral-50 overflow-hidden mt-10">
+		<section className="relative bg-neutral-50 overflow-hidden pt-20">
 			{/* Background accents */}
 			<div
 				className="pointer-events-none absolute inset-0 opacity-20"
