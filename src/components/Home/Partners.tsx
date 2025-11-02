@@ -70,7 +70,7 @@ export default function Partners() {
 			: partners.filter((p) => p.category === selected);
 
 	return (
-		<section className="relative bg-gray-50">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
