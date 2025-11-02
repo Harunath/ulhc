@@ -4,7 +4,7 @@ const BRAND = "#045e5a";
 
 export default function Mission() {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
@@ -47,7 +47,7 @@ export default function Mission() {
 					].map((item) => (
 						<div
 							key={item.title}
-							className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:shadow-md">
+							className="flex flex-col rounded-2xl border border-slate-200 bg-neutral-50 p-6 text-center shadow-sm transition hover:shadow-md">
 							<div
 								className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl ring-1"
 								style={{

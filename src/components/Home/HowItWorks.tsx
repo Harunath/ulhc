@@ -24,7 +24,7 @@ const steps = [
 
 export default function HowItWorks() {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
@@ -71,7 +71,7 @@ export default function HowItWorks() {
 								</div>
 
 								{/* Card */}
-								<div className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md lg:max-w-xl lg:mx-auto">
+								<div className="relative rounded-2xl border border-slate-200 bg-neutral-50 p-6 shadow-sm transition hover:shadow-md lg:max-w-xl lg:mx-auto">
 									<div className="flex items-start gap-4">
 										<div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#045e5a]/10 ring-1 ring-[#045e5a]/10">
 											{step.icon}

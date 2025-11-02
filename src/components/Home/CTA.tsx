@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Cta() {
 	return (
-		<section className="relative overflow-hidden bg-white">
+		<section className="relative overflow-hidden bg-neutral-50">
 			{/* background */}
 			<div
 				aria-hidden
@@ -22,7 +22,7 @@ export default function Cta() {
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, amount: 0.3 }}
 					transition={{ duration: 0.5, ease: "easeOut" }}
-					className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+					className="relative overflow-hidden rounded-2xl border border-slate-200 bg-neutral-50 shadow-sm">
 					{/* subtle corner gradient */}
 					<div
 						aria-hidden
