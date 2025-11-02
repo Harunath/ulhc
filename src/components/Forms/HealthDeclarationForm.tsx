@@ -119,9 +119,6 @@ export default function HealthDeclarationForm({
 		setSubmitting(true);
 
 		try {
-			console.log("memberInfo:", memberInfo);
-			console.log("Form submitted:", form);
-			console.log("gender", memberInfo.gender);
 			const res = await fetch("/api/register", {
 				method: "POST",
 				headers: {
