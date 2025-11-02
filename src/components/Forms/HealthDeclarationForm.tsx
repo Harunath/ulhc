@@ -24,13 +24,13 @@ export default function HealthDeclarationForm({
 	memberInfo,
 }: {
 	memberInfo: {
-		vrkpId: string;
-		name: string;
-		dob: string;
-		mobile: string;
-		email: string;
-		aadhar: string;
-		gender: string;
+		vrkpId?: string;
+		name?: string;
+		dob?: string;
+		mobile?: string;
+		email?: string;
+		aadhar?: string;
+		gender?: string;
 	};
 }) {
 	const HEALTH_HISTORY_OPTIONS = [
@@ -156,7 +156,7 @@ export default function HealthDeclarationForm({
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="mx-auto my-20 max-w-3xl p-6 space-y-6 bg-neutral-50 text-neutral-950 rounded-xl shadow">
+			className="mx-auto py-20 max-w-3xl p-6 space-y-6 bg-neutral-50 text-neutral-900 rounded-xl shadow">
 			<h1 className="text-2xl font-semibold">
 				ULHC {"–"} Member Health Declaration & Consent Form
 			</h1>

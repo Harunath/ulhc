@@ -45,17 +45,17 @@ const Registration = () => {
 	}, [token]);
 	return (
 		<div className=" bg-neutral-50">
-			{data.vrkpId ? (
-				<HealthDeclarationForm
-					memberInfo={{
-						...data,
-						mobile: data.phone,
-						aadhar: data.aadhaar,
-					}}
-				/>
-			) : (
+			{/* {data.vrkpId ? ( */}
+			<HealthDeclarationForm
+				memberInfo={{
+					...data,
+					mobile: data.phone,
+					aadhar: data.aadhaar,
+				}}
+			/>
+			{/* ) : (
 				<>{error ? <p>Error: {error}</p> : <p>Loading...</p>}</>
-			)}
+			)} */}
 		</div>
 	);
 };
