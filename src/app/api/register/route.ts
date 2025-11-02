@@ -85,12 +85,16 @@ export const POST = async (req: NextRequest) => {
 				body: JSON.stringify({
 					email: member.email,
 					name: member.fullname,
-					dob: member.dob.getDate(),
+					dob: new Date(member.dob).toISOString().split("T")[0],
 					aadhaar: member.aadhaar,
 					address: member.address,
 					vrkpId: member.vrkpId,
-					activationDate: member.programsStartedAt.getDate(),
-					expireDate: member.programsExpireAt.getDate(),
+					activationDate: new Date(member.programsStartedAt)
+						.toISOString()
+						.split("T")[0],
+					expireDate: new Date(member.programsExpireAt)
+						.toISOString()
+						.split("T")[0],
 				}),
 			}
 		);
