@@ -44,7 +44,7 @@ const Registration = () => {
 		}
 	}, [token]);
 	return (
-		<div>
+		<div className=" bg-neutral-50">
 			{data.vrkpId ? (
 				<HealthDeclarationForm
 					memberInfo={{
