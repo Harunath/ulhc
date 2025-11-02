@@ -81,7 +81,7 @@ export default function ContactSection() {
 							</div>
 
 							{/* CTA note */}
-							<div className="mt-8 rounded-xl bg-white/10 p-4 backdrop-blur-sm ring-1 ring-white/15">
+							<div className="mt-8 rounded-xl bg-neutral-50/10 p-4 backdrop-blur-sm ring-1 ring-white/15">
 								<p className="text-sm text-white/90">
 									Prefer email? We usually respond within{" "}
 									<span className="font-semibold">24 hours</span>.
@@ -95,7 +95,7 @@ export default function ContactSection() {
 						initial={{ opacity: 0, x: 12 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.45, delay: 0.1 }}
-						className="rounded-2xl bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 border border-slate-200 shadow-xl">
+						className="rounded-2xl bg-neutral-50/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-50/60 border border-slate-200 shadow-xl">
 						<ContactForm />
 					</motion.div>
 				</div>
@@ -117,8 +117,8 @@ function DetailRow({
 	link?: string;
 }) {
 	return (
-		<div className="flex items-start gap-3 rounded-xl p-3 hover:bg-white/10 transition">
-			<div className="shrink-0 rounded-full bg-white/15 p-2">{icon}</div>
+		<div className="flex items-start gap-3 rounded-xl p-3 hover:bg-neutral-50/10 transition">
+			<div className="shrink-0 rounded-full bg-neutral-50/15 p-2">{icon}</div>
 			<div>
 				<p className="text-sm uppercase tracking-wide text-white/70">{title}</p>
 				{link ? (
@@ -227,7 +227,7 @@ function InputWithIcon({
 				type={type}
 				required={required}
 				placeholder={placeholder}
-				className="w-full rounded-lg border border-slate-300 bg-white/80 pl-10 pr-3 py-2.5 text-gray-900 placeholder-gray-400 shadow-sm outline-none transition focus:border-[#045e5a] focus:ring-2 focus:ring-[#045e5a]/25"
+				className="w-full rounded-lg border border-slate-300 bg-neutral-50/80 pl-10 pr-3 py-2.5 text-gray-900 placeholder-gray-400 shadow-sm outline-none transition focus:border-[#045e5a] focus:ring-2 focus:ring-[#045e5a]/25"
 			/>
 			{/* subtle bottom accent on focus */}
 			<span
@@ -254,7 +254,7 @@ function TextareaFancy({
 				required={required}
 				rows={rows}
 				placeholder={placeholder}
-				className="w-full rounded-lg border border-slate-300 bg-white/80 px-3 py-2.5 text-gray-900 placeholder-gray-400 shadow-sm outline-none transition focus:border-[#045e5a] focus:ring-2 focus:ring-[#045e5a]/25"
+				className="w-full rounded-lg border border-slate-300 bg-neutral-50/80 px-3 py-2.5 text-gray-900 placeholder-gray-400 shadow-sm outline-none transition focus:border-[#045e5a] focus:ring-2 focus:ring-[#045e5a]/25"
 			/>
 			<span
 				className="pointer-events-none absolute bottom-0 left-2 right-2 h-[2px] scale-x-0 rounded-full transition-transform group-focus-within:scale-x-100"

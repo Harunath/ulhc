@@ -129,7 +129,7 @@ export default function Intro() {
 	);
 
 	return (
-		<div className="bg-white mt-10">
+		<div className="bg-neutral-50 mt-10">
 			<section className="relative overflow-hidden">
 				<div
 					aria-hidden
@@ -166,7 +166,7 @@ export default function Intro() {
 											{stats.map((stat) => (
 												<div
 													key={stat.label}
-													className="rounded-2xl border border-gray-100 bg-white p-5 text-center shadow-sm transition will-change-transform hover:-translate-y-0.5">
+													className="rounded-2xl border border-gray-100 bg-neutral-50 p-5 text-center shadow-sm transition will-change-transform hover:-translate-y-0.5">
 													<p className="text-3xl font-bold tracking-tight text-gray-900">
 														{stat.value}
 													</p>
@@ -212,7 +212,7 @@ export default function Intro() {
 								<m.div
 									key={title}
 									variants={fadeItem}
-									className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm ring-1 ring-gray-100 transition hover:shadow-md">
+									className="group rounded-2xl border border-gray-100 bg-neutral-50 p-6 shadow-sm ring-1 ring-gray-100 transition hover:shadow-md">
 									<div className="flex items-center gap-4">
 										<div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#045e5a12] text-[#045e5a]">
 											<Icon className="h-6 w-6" />
@@ -258,7 +258,7 @@ export default function Intro() {
 								<m.div
 									key={title}
 									variants={fadeItem}
-									className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm ring-1 ring-gray-100 transition hover:shadow-md">
+									className="rounded-2xl border border-gray-100 bg-neutral-50 p-6 shadow-sm ring-1 ring-gray-100 transition hover:shadow-md">
 									<div className="flex items-center gap-3">
 										<div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#045e5a12] text-[#045e5a]">
 											<Icon className="h-5 w-5" />

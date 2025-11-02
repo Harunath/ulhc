@@ -5,7 +5,7 @@ import { FiTool } from "react-icons/fi";
 
 export default function UnderDevelopment() {
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center bg-white px-6 text-center">
+		<div className="flex min-h-screen flex-col items-center justify-center bg-neutral-50 px-6 text-center">
 			{/* Icon */}
 			<motion.div
 				initial={{ scale: 0 }}
@@ -30,8 +30,8 @@ export default function UnderDevelopment() {
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.4 }}
 				className="mt-4 max-w-lg text-gray-600">
-				This page is currently under construction. We&apos;re working hard to bring it
-				to you soon. Stay tuned!
+				This page is currently under construction. We&apos;re working hard to
+				bring it to you soon. Stay tuned!
 			</motion.p>
 
 			{/* CTA Button */}

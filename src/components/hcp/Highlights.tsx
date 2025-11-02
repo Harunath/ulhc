@@ -7,7 +7,7 @@ const BRAND = "#045e5a";
 
 export default function Highlights() {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-6xl px-6 py-14">
 				<div
 					className="group relative overflow-hidden rounded-3xl p-[1px] transition-shadow hover:shadow-lg"
@@ -15,7 +15,7 @@ export default function Highlights() {
 						background: `linear-gradient(135deg, ${BRAND}33, transparent 40%, ${BRAND}22)`,
 					}}>
 					{/* Card */}
-					<div className="relative rounded-[calc(1.5rem-1px)] bg-white/90 p-7 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/75 sm:p-9">
+					<div className="relative rounded-[calc(1.5rem-1px)] bg-neutral-50/90 p-7 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-neutral-50/75 sm:p-9">
 						{/* Top tag + icon */}
 						<div className="flex items-center gap-3">
 							<span
@@ -37,10 +37,10 @@ export default function Highlights() {
 									Your ULHC Health Care Program — at a glance
 								</h2>
 								<p className="mt-2 text-[15px] leading-7 text-slate-700 sm:text-base">
-									For your convenience, we&apos;ve outlined the benefits, processes,
-									and support available through the ULHC Health Care Program.
-									This guide helps you make the most of your membership and
-									enjoy all the services provided.
+									For your convenience, we&apos;ve outlined the benefits,
+									processes, and support available through the ULHC Health Care
+									Program. This guide helps you make the most of your membership
+									and enjoy all the services provided.
 								</p>
 							</div>
 

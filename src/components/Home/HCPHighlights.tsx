@@ -27,7 +27,7 @@ const items = [
 
 export default function HcpHighlights() {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-2xl text-center">
@@ -60,7 +60,7 @@ export default function HcpHighlights() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, amount: 0.3 }}
 							transition={{ duration: 0.45, delay: i * 0.05, ease: "easeOut" }}
-							className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm outline-none transition hover:-translate-y-0.5 hover:shadow-md focus-within:shadow-md"
+							className="group relative rounded-2xl border border-slate-200 bg-neutral-50 p-6 shadow-sm outline-none transition hover:-translate-y-0.5 hover:shadow-md focus-within:shadow-md"
 							tabIndex={0}>
 							<div
 								className="flex h-10 w-10 items-center justify-center rounded-lg ring-1"

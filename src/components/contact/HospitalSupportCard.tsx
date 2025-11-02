@@ -20,7 +20,7 @@ export default function HospitalSupportCard() {
 			viewport={{ once: true, margin: "-80px" }}
 			transition={{ duration: 0.4 }}
 			className="w-full">
-			<div className="mx-auto my-10 max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md sm:p-8 md:p-10">
+			<div className="mx-auto my-10 max-w-3xl rounded-3xl border border-slate-200 bg-neutral-50 p-6 shadow-sm transition hover:shadow-md sm:p-8 md:p-10">
 				{/* Top row */}
 				<div className="flex items-center gap-3">
 					<span

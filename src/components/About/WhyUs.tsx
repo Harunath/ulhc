@@ -14,7 +14,7 @@ const BRAND = "#045e5a";
 
 export default function WhyUs() {
 	return (
-		<section className="relative overflow-hidden bg-white">
+		<section className="relative overflow-hidden bg-neutral-50">
 			{/* Soft brand backdrop */}
 			<div
 				aria-hidden
@@ -52,7 +52,7 @@ export default function WhyUs() {
 						transition={{ duration: 0.55, ease: "easeOut" }}
 						className="lg:col-span-7">
 						{/* Problem statement card */}
-						<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+						<div className="rounded-2xl border border-slate-200 bg-neutral-50 p-6 shadow-sm">
 							<div className="flex items-start gap-4">
 								<div
 									className="flex h-11 w-11 items-center justify-center rounded-xl ring-1"
@@ -109,7 +109,7 @@ export default function WhyUs() {
 						viewport={{ once: true, amount: 0.25 }}
 						transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
 						className="lg:col-span-5">
-						<div className="flex h-full flex-col justify-between gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+						<div className="flex h-full flex-col justify-between gap-6 rounded-2xl border border-slate-200 bg-neutral-50 p-6 shadow-sm">
 							<div>
 								<div className="text-xs font-medium uppercase tracking-wider text-slate-500">
 									Community Impact
@@ -124,7 +124,7 @@ export default function WhyUs() {
 											key={s.label}
 											className={[
 												"flex flex-col items-center justify-center p-4 text-center",
-												idx === 1 ? "bg-[rgba(4,94,90,0.05)]" : "bg-white",
+												idx === 1 ? "bg-[rgba(4,94,90,0.05)]" : "bg-neutral-50",
 											].join(" ")}>
 											<div
 												className="text-xl sm:text-2xl font-bold leading-none"
@@ -180,7 +180,7 @@ function Highlight({
 	desc: string;
 }) {
 	return (
-		<div className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+		<div className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-neutral-50 p-4 shadow-sm transition hover:shadow-md">
 			<div
 				className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 transition"
 				style={{

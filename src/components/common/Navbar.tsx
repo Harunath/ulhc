@@ -42,7 +42,7 @@ export default function Navbar() {
 			className={[
 				"fixed top-0 left-0 z-50 w-full h-20 flex items-center transition-all duration-300",
 				scrolled && !menuOpen
-					? "bg-white/85 backdrop-blur-lg shadow-md"
+					? "bg-neutral-50/85 backdrop-blur-lg shadow-md"
 					: "bg-transparent",
 			].join(" ")}
 			aria-label="Main navigation">
@@ -139,7 +139,7 @@ export default function Navbar() {
 						{/* Panel */}
 						<motion.aside
 							id="mobile-drawer"
-							className="fixed top-0 right-0 z-[50] h-full w-4/5 max-w-xs font-medium bg-white px-6 pt-24 pb-8 shadow-xl lg:hidden"
+							className="fixed top-0 right-0 z-[50] h-full w-4/5 max-w-xs font-medium bg-neutral-50 px-6 pt-24 pb-8 shadow-xl lg:hidden"
 							initial={{ x: "100%" }}
 							animate={{ x: 0 }}
 							exit={{ x: "100%" }}

@@ -44,7 +44,7 @@ export default function Testimonials({
 	);
 
 	return (
-		<section className="relative py-16 sm:py-20 bg-white-100">
+		<section className="relative py-16 sm:py-20 bg-neutral-50-100">
 			{/* soft glow */}
 			<div
 				aria-hidden
@@ -65,9 +65,7 @@ export default function Testimonials({
 						{title}
 					</h2>
 					{subtitle ? (
-						<p className="mt-3 text-black  max-w-2xl mx-auto">
-							{subtitle}
-						</p>
+						<p className="mt-3 text-black  max-w-2xl mx-auto">{subtitle}</p>
 					) : null}
 				</motion.div>
 
@@ -79,7 +77,7 @@ export default function Testimonials({
 						{data.map((t, i) => (
 							<li
 								key={i}
-								className="snap-center shrink-0 basis-[85%] bg-white dark:bg-neutral-800 border border-black/5 dark:border-white/10 rounded-2xl p-5 shadow-sm">
+								className="snap-center shrink-0 basis-[85%] bg-neutral-50 dark:bg-neutral-800 border border-black/5 dark:border-white/10 rounded-2xl p-5 shadow-sm">
 								<QuoteCard t={t} />
 							</li>
 						))}
@@ -94,7 +92,7 @@ export default function Testimonials({
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: "-80px" }}
 							transition={{ duration: 0.5, delay: i * 0.05 }}
-							className="bg-white dark:bg-neutral-800 border border-black/5 dark:border-white/10 rounded-2xl p-6 shadow-sm">
+							className="bg-neutral-50 dark:bg-neutral-800 border border-black/5 dark:border-white/10 rounded-2xl p-6 shadow-sm">
 							<QuoteCard t={t} />
 						</motion.div>
 					))}

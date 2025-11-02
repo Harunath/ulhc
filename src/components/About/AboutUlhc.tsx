@@ -8,7 +8,7 @@ const BRAND = "#045e5a";
 
 export default function AboutUlhc() {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Top Accent */}
 				<div className="mb-8 flex items-center gap-2">
@@ -78,7 +78,7 @@ export default function AboutUlhc() {
 							].map((item) => (
 								<li
 									key={item.label}
-									className="flex items-center gap-2 rounded-xl border bg-white p-3 text-sm text-slate-800 shadow-sm transition hover:shadow-md"
+									className="flex items-center gap-2 rounded-xl border bg-neutral-50 p-3 text-sm text-slate-800 shadow-sm transition hover:shadow-md"
 									style={{ borderColor: "#e5e7eb" }}>
 									<span
 										className="inline-flex h-9 w-9 items-center justify-center rounded-lg ring-1"
@@ -124,7 +124,7 @@ export default function AboutUlhc() {
 									At a glance
 								</div>
 
-								<div className="mt-4 grid grid-cols-3 overflow-hidden rounded-xl border border-slate-200 bg-white">
+								<div className="mt-4 grid grid-cols-3 overflow-hidden rounded-xl border border-slate-200 bg-neutral-50">
 									{[
 										{ value: "10K+", label: "Members" },
 										{ value: "500+", label: "Partner Hospitals" },
@@ -134,7 +134,7 @@ export default function AboutUlhc() {
 											key={s.label}
 											className={[
 												"flex flex-col items-center justify-center p-4 text-center",
-												idx === 1 ? "bg-[rgba(4,94,90,0.05)]" : "bg-white",
+												idx === 1 ? "bg-[rgba(4,94,90,0.05)]" : "bg-neutral-50",
 											].join(" ")}>
 											<div
 												className="text-xl font-bold leading-none sm:text-2xl"

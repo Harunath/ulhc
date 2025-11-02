@@ -71,7 +71,7 @@ export default function ValuesULHC({
 ========================= */
 function RibbonMosaic() {
 	return (
-		<section className="relative overflow-hidden bg-white">
+		<section className="relative overflow-hidden bg-neutral-50">
 			{/* flowing ribbon bg */}
 			<div
 				aria-hidden
@@ -153,7 +153,7 @@ function ValueCard({ item }: { item: (typeof values)[number] }) {
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.3 }}
 			transition={{ duration: 0.45, ease: "easeOut" }}
-			className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md sm:p-6">
+			className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-neutral-50 p-5 shadow-sm transition hover:shadow-md sm:p-6">
 			{/* badge */}
 			<span
 				className="inline-flex w-fit items-center gap-2 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ring-1"

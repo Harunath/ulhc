@@ -17,7 +17,7 @@ export default function Footer() {
 							alt="ULHC Logo"
 							width={150}
 							height={50}
-							className="bg-white p-2 rounded-md mb-4"
+							className="bg-neutral-50 p-2 rounded-md mb-4"
 						/>
 						<p className="mt-3 text-sm leading-relaxed text-white/80">
 							Unity Life Health Care (ULHC) is dedicated to delivering genuine

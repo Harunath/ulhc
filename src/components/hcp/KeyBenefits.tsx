@@ -8,7 +8,7 @@ type Audience = "patient" | "hospital";
 
 export default function KeyBenefits({ audience }: { audience?: Audience }) {
 	return (
-		<section className="relative bg-white">
+		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
 				{/* Header */}
 				<div className="mx-auto max-w-3xl text-center">
@@ -66,7 +66,7 @@ export default function KeyBenefits({ audience }: { audience?: Audience }) {
 
 function BenefitCard({ title, desc }: { title: string; desc: string }) {
 	return (
-		<article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+		<article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-neutral-50 p-6 shadow-sm transition hover:shadow-md">
 			{/* badge */}
 			<span
 				className="inline-flex items-center gap-2 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ring-1"

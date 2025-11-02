@@ -110,7 +110,7 @@ export default function Partners() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, amount: 0.3 }}
 							transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
-							className="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+							className="group relative flex flex-col rounded-2xl border border-gray-200 bg-neutral-50 p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
 							<div className="relative h-24 w-full flex items-center justify-center">
 								<Image
 									src={p.logo || defaultLogo}

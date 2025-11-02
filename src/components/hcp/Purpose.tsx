@@ -7,10 +7,10 @@ const BRAND = "#045e5a";
 
 export default function Purpose() {
 	return (
-		<section className="relative overflow-hidden bg-white mt-20">
+		<section className="relative overflow-hidden bg-neutral-50 mt-20">
 			<div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20 ">
 				{/* Card */}
-				<div className="relative overflow-hidden rounded-3xl bg-white px-6 py-10 shadow-md ring-1 ring-slate-200 sm:px-10 lg:px-14">
+				<div className="relative overflow-hidden rounded-3xl bg-neutral-50 px-6 py-10 shadow-md ring-1 ring-slate-200 sm:px-10 lg:px-14">
 					{/* Header */}
 					<span
 						className="inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white"
