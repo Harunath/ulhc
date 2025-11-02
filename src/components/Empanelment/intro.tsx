@@ -232,7 +232,7 @@ export default function Intro() {
 			</section>
 
 			{/* BENEFITS */}
-			<section id="benefits" className="py-16 bg-gray-50">
+			<section id="benefits" className="py-16 bg-neutral-50">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8">
 					<header className="mx-auto max-w-2xl text-center">
 						<span className="inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide bg-[#045e5a12] text-[#045e5a]">

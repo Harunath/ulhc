@@ -176,7 +176,7 @@ export default function HealthDeclarationForm({
 							type="text"
 							value={value}
 							disabled
-							className="mt-1 w-full rounded-lg border px-3 py-2 bg-gray-100"
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
 						/>
 					</div>
 				))}
