@@ -85,6 +85,9 @@ export default function HealthDeclarationForm({
 
 	const validate = () => {
 		const errs: Record<string, string> = {};
+		if (!form.address || !form.city || !form.state || !form.pincode) {
+			errs.address = "Complete address details are required";
+		}
 
 		if (!form.healthHistory.length)
 			errs.healthHistory = "Select at least one health history option";
@@ -145,7 +148,36 @@ export default function HealthDeclarationForm({
 					}),
 				}),
 			});
+			if (!res.ok) {
+				const errorData = await res.json();
+				setErrors({ submission: errorData.error || "Submission failed" });
+				throw new Error(
+					`Submission failed: ${errorData.error || "Unknown error"}`
+				);
+			}
+			setForm(() => ({
+				address: "",
+				city: "",
+				state: "",
+				pincode: "",
+				healthHistory: [],
+				healthHistoryOtherText: "",
+				medications: "",
+				allergies: "",
+				tobaccoUse: "",
+				alcoholUse: "",
+				exercise: "",
+				foodHabits: "",
+				insuranceStatus: "",
+				insuranceDetails: "",
+				consent: false,
+			}));
 			alert("Form submitted successfully!");
+			if (process.env.NEXT_PUBLIC_ENV === "development") {
+				window.location.href = "http://localhost:3000/my-docs";
+			} else {
+				window.location.href = "https://www.vrkisanparivaar.com/my-docs";
+			}
 		} catch (err) {
 			console.error(err);
 		} finally {
@@ -157,12 +189,12 @@ export default function HealthDeclarationForm({
 		<form
 			onSubmit={handleSubmit}
 			className="mx-auto py-20 max-w-3xl p-6 space-y-6 bg-neutral-50 text-neutral-900 rounded-xl shadow">
-			<h1 className="text-2xl font-semibold">
-				ULHC {"–"} Member Health Declaration & Consent Form
-			</h1>
+			<h2 className="text-2xl font-bold text-center">
+				ULHC {"–"} Member Registration
+			</h2>
 
 			{/* Member Info */}
-			<section className="space-y-2">
+			{/* <section className="space-y-2">
 				<h2 className="text-lg font-medium">Member Information</h2>
 				{Object.entries(memberInfo).map(([key, value]) => (
 					<div key={key}>
@@ -177,6 +209,89 @@ export default function HealthDeclarationForm({
 						/>
 					</div>
 				))}
+			</section> */}
+
+			<section className="space-y-2">
+				<h2 className="text-lg font-medium">Personal Details</h2>
+				<div className="grid grid-cols-1 gap-2">
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Full Name
+						</label>
+						<input
+							type="text"
+							value={memberInfo.name}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Date of Birth
+						</label>
+						<input
+							type="text"
+							value={memberInfo.dob}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Gender
+						</label>
+						<input
+							type="text"
+							value={memberInfo.gender}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Phone
+						</label>
+						<input
+							type="text"
+							value={memberInfo.mobile}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Email
+						</label>
+						<input
+							type="text"
+							value={memberInfo.email}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Aadhaar
+						</label>
+						<input
+							type="text"
+							value={memberInfo.aadhar}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium capitalize">
+							Vr Kisan Parivaar ID
+						</label>
+						<input
+							type="text"
+							value={memberInfo.vrkpId}
+							disabled
+							className="mt-1 w-full rounded-lg border px-3 py-2 bg-neutral-100"
+						/>
+					</div>
+				</div>
 			</section>
 
 			<section className="space-y-2">
@@ -213,6 +328,9 @@ export default function HealthDeclarationForm({
 				</div>
 			</section>
 
+			<h2 className="text-2xl font-bold text-center">
+				Health Declaration & Consent Form
+			</h2>
 			{/* Health History */}
 			<section className="space-y-2">
 				<h2 className="text-lg font-medium">
