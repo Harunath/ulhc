@@ -1,118 +1,127 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { SendMailClient } from "zeptomail";
-import { console } from "inspector";
+
+export const runtime = "nodejs"; // Zepto SDK needs Node env
+
 const prisma = new PrismaClient();
 
 export async function POST() {
 	try {
-		console.log("Fetching members...");
-		const member = await prisma.member.findMany();
-		console.log(`Found ${member.length} members.`);
-		for (const m of member) {
-			console.log("Member name : ", m.fullname, " Sending email to: ", m.email);
-			const to = {
-				address: m.email,
-				name: m.fullname,
-			};
-			const merge_info = {
-				name: m.fullname,
-				dob: m.dob.toISOString().split("T")[0],
-				aadhaar: m.aadhaar,
-				address:
-					m.address.length > 20 ? `${m.address.slice(0, 20)}...` : m.address,
-				vrkpId: m.vrkpId,
-				activationDate: new Date().toISOString().split("T")[0],
-				expireDate: new Date(
-					new Date().setFullYear(new Date().getFullYear() + 1)
-				)
-					.toISOString()
-					.split("T")[0],
-			};
-			const from = {
-				address: "noreply@unitylifehealthcare.com",
-				name: "Unity Life Health Care",
-			};
-			if (!to?.address) {
-				return NextResponse.json(
-					{ ok: false, error: "missing_to_address" },
-					{ status: 400 }
-				);
-			}
-			if (!merge_info?.name) {
-				return NextResponse.json(
-					{ ok: false, error: "missing_merge_info_name" },
-					{ status: 400 }
-				);
-			}
+		const API_URL = process.env.EMAIL_API_URL;
+		const TOKEN = process.env.EMAIL_TOKEN;
+		const TEMPLATE_KEY = process.env.EMAIL_TEMPLATE_KEY;
 
-			const API_URL = process.env.EMAIL_API_URL;
-			const TOKEN = process.env.EMAIL_TOKEN;
-			const TEMPLATE_KEY = process.env.EMAIL_TEMPLATE_KEY;
-
-			if (!API_URL || !TOKEN || !TEMPLATE_KEY) {
-				console.log("Missing email env vars");
-				return NextResponse.json(
-					{ ok: false, error: "missing_email_env_vars" },
-					{ status: 500 }
-				);
-			}
-
-			const url = `${API_URL.replace(/\/$/, "")}/template`;
-
-			const client = new SendMailClient({ url, token: TOKEN });
-
-			client
-				.sendMailWithTemplate({
-					mail_template_key: TEMPLATE_KEY,
-					from: {
-						address: "noreply@unitylifehealthcare.com",
-						name: "Unity Life Health Care",
-					},
-					to: [
-						{
-							email_address: {
-								address: to.address,
-								name: to.name,
-							},
-						},
-					],
-					merge_info: merge_info,
-				})
-				.then(async (res: unknown) => {
-					console.log(res);
-					await prisma.emailLog.create({
-						data: {
-							templateKey: process.env.EMAIL_TEMPLATE_KEY!,
-							toAddress: to.address,
-							fromAddress: from?.address,
-							mergeInfo: merge_info,
-							responseStatus: 200,
-							responseData: res as object,
-							isDelivered: true,
-							tag: "ULHC_REGISTRATION",
-						},
-					});
-				})
-				.catch(async (error: unknown) => {
-					console.error("ZeptoMail send error:", error);
-					await prisma.emailLog.create({
-						data: {
-							templateKey: process.env.EMAIL_TEMPLATE_KEY!,
-							toAddress: to.address,
-							fromAddress: from?.address,
-							mergeInfo: merge_info,
-							responseStatus: 500,
-							responseData: error as object,
-							isDelivered: false,
-							tag: "ULHC_REGISTRATION",
-						},
-					});
-				});
+		if (!API_URL || !TOKEN || !TEMPLATE_KEY) {
+			return NextResponse.json(
+				{ ok: false, error: "missing_email_env_vars" },
+				{ status: 500 }
+			);
 		}
-		return NextResponse.json({ ok: true, status: 200 }, { status: 200 });
+
+		const url = `${API_URL.replace(/\/$/, "")}/template`;
+		const client = new SendMailClient({ url, token: TOKEN });
+
+		// only 20 members
+		const members = await prisma.member.findMany({ take: 20 });
+		if (!members.length) {
+			return NextResponse.json({ ok: true, sent: 0 }, { status: 200 });
+		}
+
+		const tasks = members.map(async (m) => {
+			try {
+				if (!m.email) throw new Error(`member ${m.id} missing email`);
+
+				const to = { address: m.email, name: m.fullname ?? undefined };
+				const from = {
+					address: "noreply@unitylifehealthcare.com", // must be a verified sender in ZeptoMail
+					name: "Unity Life Health Care",
+				};
+
+				const today = new Date();
+				const expire = new Date(today);
+				expire.setFullYear(today.getFullYear() + 1);
+
+				const merge_info = {
+					name: m.fullname ?? "",
+					dob: m.dob ? new Date(m.dob).toISOString().split("T")[0] : "",
+					aadhaar: m.aadhaar ?? "",
+					address:
+						(m.address ?? "").length > 20
+							? `${(m.address ?? "").slice(0, 20)}...`
+							: m.address ?? "",
+					vrkpId: m.vrkpId ?? "",
+					activationDate: today.toISOString().split("T")[0],
+					expireDate: expire.toISOString().split("T")[0],
+				};
+
+				const res = await client.sendMailWithTemplate({
+					mail_template_key: TEMPLATE_KEY,
+					from,
+					to: [{ email_address: to }],
+					merge_info,
+				});
+
+				await prisma.emailLog.create({
+					data: {
+						templateKey: TEMPLATE_KEY,
+						toAddress: to.address,
+						fromAddress: from.address,
+						mergeInfo: merge_info,
+						responseStatus: 200,
+						responseData: res as unknown as object,
+						isDelivered: true,
+						tag: "ULHC_REGISTRATION",
+					},
+				});
+
+				return { id: m.id, ok: true };
+			} catch (error) {
+				// log failure
+				await prisma.emailLog.create({
+					data: {
+						templateKey: TEMPLATE_KEY,
+						toAddress: m.email ?? "",
+						fromAddress: "noreply@unitylifehealthcare.com",
+						mergeInfo: {
+							name: m.fullname ?? "",
+							vrkpId: m.vrkpId ?? "",
+						},
+						responseStatus: 500,
+						responseData:
+							typeof error === "object" && error
+								? error
+								: { message: String(error) },
+						isDelivered: false,
+						tag: "ULHC_REGISTRATION",
+					},
+				});
+				return { id: m.id, ok: false, error: String(error) };
+			}
+		});
+
+		// wait for all sends to finish
+		const results = await Promise.allSettled(tasks);
+
+		const summary = results.reduce(
+			(acc, r) => {
+				if (r.status === "fulfilled") {
+					if (r.value.ok) acc.success += 1;
+					else acc.fail += 1;
+				} else {
+					acc.fail += 1;
+				}
+				return acc;
+			},
+			{ success: 0, fail: 0 }
+		);
+
+		return NextResponse.json(
+			{ ok: true, total: members.length, ...summary },
+			{ status: 200 }
+		);
 	} catch (err) {
-		console.error("Error in email confirmation route:", err);
+		console.error("Email send batch failed:", err);
 		return NextResponse.json(
 			{
 				ok: false,
