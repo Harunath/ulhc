@@ -23,8 +23,6 @@ export const SendActivationMail = async ({
 	activationDate: string;
 	expireDate: string;
 }) => {
-	console.log("Content ", token);
-	console.log("sending email");
 	const htmlBody = `
 <!DOCTYPE html>
 <html lang="en" style="margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif;background-color:#f8f9fa;">
@@ -64,14 +62,13 @@ export const SendActivationMail = async ({
             For any assistance or queries regarding your healthcare services, please reach out to us at:
           </p>
           <table cellpadding="4" cellspacing="0" width="100%" style="font-size:14px;color:#333333;">
-            <tr><td><b>Helpline Number:</b></td><td>[Helpline Number]</td></tr>
             <tr><td><b>Website:</b></td><td><a href="https://www.unitylifehealthcare.com/" style="color:#0077b6;">unitylifehealthcare.com</a></td></tr>
             <tr><td><b>Email:</b></td><td><a href="mailto: help@unitylifehealthcare.com" style="color:#0077b6;">help@unitylifehealthcare.com</a></td></tr>
           </table>
           <p style="margin-top:25px;font-size:15px;color:#555555;line-height:1.6;">
             Thank you for choosing <b>ULHC</b>. We are committed to providing you with quality healthcare services with care and compassion.
           </p>
-          <p style="margin-top:20px;font-size:15px;color:#333333;">Warm regards,<br/><b>Unity Life Health Care (ULHC)</b><br/>[ULHC Address]</p>
+          <p style="margin-top:20px;font-size:15px;color:#333333;">Warm regards,<br/><b>Unity Life Health Care (ULHC)</b></p>
         </td>
       </tr>
       <tr>

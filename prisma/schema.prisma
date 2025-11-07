@@ -104,3 +104,33 @@ model HealthRecord {
   @@index([memberId])
 
 }
+
+
+model EmailLog {
+  id             String    @id @default(uuid())
+
+  // core info
+  templateKey    String
+  toAddress      String
+  fromAddress    String?
+  bounceAddress  String?
+
+  // dynamic data
+  mergeInfo      Json
+  responseStatus Int?
+  responseData   Json?
+
+  // resend / tracking
+  sentAt         DateTime  @default(now())
+  resentCount    Int       @default(0)
+  lastTriedAt    DateTime? // updated when retry is attempted
+  isDelivered    Boolean   @default(false)
+  errorMessage   String?   // if any error occurred in sending
+
+  // optional references (for cross-app linking)
+  applicationId  String?   // e.g. link to ULHC Member or VRKP user if needed
+  tag            String?   // e.g. "ULHC_REGISTRATION" or "PASSWORD_RESET"
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
