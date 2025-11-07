@@ -76,29 +76,37 @@ export const POST = async (req: NextRequest) => {
 			return member;
 		});
 		const sendEmail = await fetch(
-			`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/integrations/email`,
+			`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/integrations/email/confirmation`,
 			{
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					email: member.email,
-					name: member.fullname,
-					dob: new Date(member.dob).toISOString().split("T")[0],
-					aadhaar: member.aadhaar,
-					address: member.address,
-					vrkpId: member.vrkpId,
-					activationDate: new Date(member.programsStartedAt)
-						.toISOString()
-						.split("T")[0],
-					expireDate: new Date(member.programsExpireAt)
-						.toISOString()
-						.split("T")[0],
+					to: {
+						address: member.email,
+						name: member.fullname,
+					},
+					from: {
+						address: "help@unitylifehealthcare.com",
+						name: "Unity Life Health Care",
+					},
+					merge_info: {
+						name: member.fullname,
+						dob: new Date(member.dob).toISOString().split("T")[0],
+						aadhaar: member.aadhaar,
+						address: member.address,
+						vrkpId: member.vrkpId,
+						activationDate: new Date(member.programsStartedAt)
+							.toISOString()
+							.split("T")[0],
+						expireDate: new Date(member.programsExpireAt)
+							.toISOString()
+							.split("T")[0],
+					},
 				}),
 			}
 		);
-		console.log("Sent registration email, response status:", sendEmail.status);
 		return NextResponse.json({ ok: true, memberId: member.id });
 	} catch (error) {
 		console.error("Registration error:", error);
