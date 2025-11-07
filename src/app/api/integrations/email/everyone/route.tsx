@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { SendMailClient } from "zeptomail";
+import { console } from "inspector";
 const prisma = new PrismaClient();
 
 export async function POST() {
@@ -8,6 +9,7 @@ export async function POST() {
 		const member = await prisma.member.findMany();
 
 		for (const m of member) {
+			console.log("Member name : ", m.fullname, " Sending email to: ", m.email);
 			const to = {
 				address: m.email,
 				name: m.fullname,
@@ -48,6 +50,7 @@ export async function POST() {
 			const TEMPLATE_KEY = process.env.EMAIL_TEMPLATE_KEY;
 
 			if (!API_URL || !TOKEN || !TEMPLATE_KEY) {
+				console.log("Missing email env vars");
 				return NextResponse.json(
 					{ ok: false, error: "missing_email_env_vars" },
 					{ status: 500 }
