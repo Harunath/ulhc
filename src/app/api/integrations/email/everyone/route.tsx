@@ -6,8 +6,9 @@ const prisma = new PrismaClient();
 
 export async function POST() {
 	try {
+		console.log("Fetching members...");
 		const member = await prisma.member.findMany();
-
+		console.log(`Found ${member.length} members.`);
 		for (const m of member) {
 			console.log("Member name : ", m.fullname, " Sending email to: ", m.email);
 			const to = {
