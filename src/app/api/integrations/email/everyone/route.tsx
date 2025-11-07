@@ -38,10 +38,6 @@ export async function POST() {
 					name: "Unity Life Health Care",
 				};
 
-				const today = new Date();
-				const expire = new Date(today);
-				expire.setFullYear(today.getFullYear() + 1);
-
 				const merge_info = {
 					name: m.fullname ?? "",
 					dob: m.dob ? new Date(m.dob).toISOString().split("T")[0] : "",
@@ -51,8 +47,8 @@ export async function POST() {
 							? `${(m.address ?? "").slice(0, 20)}...`
 							: m.address ?? "",
 					vrkpId: m.vrkpId ?? "",
-					activationDate: today.toISOString().split("T")[0],
-					expireDate: expire.toISOString().split("T")[0],
+					activationDate: m.programsStartedAt.toISOString().split("T")[0],
+					expireDate: m.programsExpireAt.toISOString().split("T")[0],
 				};
 
 				const res = await client.sendMailWithTemplate({
