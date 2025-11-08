@@ -103,6 +103,7 @@ export const POST = async (req: NextRequest) => {
 						expireDate: new Date(member.programsExpireAt)
 							.toISOString()
 							.split("T")[0],
+						year: new Date().getFullYear(),
 					},
 				}),
 			}
