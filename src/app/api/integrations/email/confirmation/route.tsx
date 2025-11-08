@@ -11,6 +11,7 @@ type MergeInfo = {
 	vrkpId: string;
 	activationDate: string;
 	expireDate: string;
+	year: string | number;
 };
 
 type Body = {
@@ -106,7 +107,6 @@ export async function POST(req: NextRequest) {
 				merge_info: merge_info,
 			})
 			.then(async (res: unknown) => {
-				console.log(res);
 				await prisma.emailLog.create({
 					data: {
 						templateKey: process.env.EMAIL_TEMPLATE_KEY!,
