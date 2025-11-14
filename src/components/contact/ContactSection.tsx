@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiGlobe, FiUser, FiPhone } from "react-icons/fi";
+import { FaPhone } from "react-icons/fa";
 
 const BRAND = "#045e5a";
 
@@ -62,6 +63,11 @@ export default function ContactSection() {
 							</p>
 
 							<div className="mt-8 space-y-4">
+								<DetailRow
+									icon={<FaPhone className="h-5 w-5" />}
+									title="Phone"
+									value="+91 9199086 33412"
+								/>
 								<DetailRow
 									icon={<FiMail className="h-5 w-5" />}
 									title="Email"
