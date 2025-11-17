@@ -80,6 +80,7 @@ export default function Footer() {
 					<div>
 						<h4 className="text-sm font-semibold">Contact</h4>
 						<ul className="mt-4 space-y-2 text-sm">
+							<li>📞 +91 9199086 33412</li>
 							<li>📧 help@unitylifehealthcare.com</li>
 							<li className="flex flex-col">
 								<span className="font-medium">
