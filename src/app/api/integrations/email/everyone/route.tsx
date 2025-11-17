@@ -23,7 +23,10 @@ export async function POST() {
 		const client = new SendMailClient({ url, token: TOKEN });
 
 		// only 20 members
-		const members = await prisma.member.findMany({ take: 20 });
+		const members = await prisma.member.findMany({
+			where: { id: "37f1bf4d-6716-4668-b91b-36effd9a3b9d" },
+			take: 40,
+		});
 		if (!members.length) {
 			return NextResponse.json({ ok: true, sent: 0 }, { status: 200 });
 		}
