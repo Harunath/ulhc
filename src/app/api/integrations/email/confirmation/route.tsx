@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { SendMailClient } from "zeptomail";
 import puppeteer from "puppeteer";
-import logo from "logo.png";
 
 const prisma = new PrismaClient();
 
@@ -105,7 +104,7 @@ export async function POST(req: NextRequest) {
 		const pdfBuffer = await htmlToPdfBuffer(filledHtml);
 		const pdfBase64 = Buffer.from(pdfBuffer).toString("base64");
 
-		const response = await client.sendMailWithTemplate({
+		const res = await client.sendMailWithTemplate({
 			mail_template_key: TEMPLATE_KEY,
 			from: {
 				address: "noreply@unitylifehealthcare.com",
@@ -128,10 +127,7 @@ export async function POST(req: NextRequest) {
 				},
 			],
 		});
-		console.log("ZeptoMail raw response:", response);
-
-		const res = await response.json();
-		console.log("ZeptoMail res:", res);
+		console.log("ZeptoMail raw response:", res);
 
 		const { message } = res;
 		if (message && message == "OK") {
@@ -229,6 +225,7 @@ const ulhcHtmlTemplate = `
         <tbody>
          <tr><td><b>Website:</b></td><td><a href="https://www.unitylifehealthcare.com/" style="color:#0077b6;">unitylifehealthcare.com</a></td></tr>
          <tr><td><b>Email:</b></td><td><a href="mailto:help@unitylifehealthcare.com" style="color:#0077b6;">help@unitylifehealthcare.com</a></td></tr>
+				 <tr><td><b>Phone:</b></td><td><a href="tel:+919908633412" style="color:#0077b6;">+91 9199086 33412</a></td></tr>
         </tbody>
        </table>
        <p style="margin-top: 25px; line-height: 1.6;color:#555555;font-size:15px;">
