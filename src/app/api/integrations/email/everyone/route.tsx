@@ -51,27 +51,30 @@ export async function POST() {
 					expireDate: m.programsExpireAt.toISOString().split("T")[0],
 				};
 
-				const res = await client.sendMailWithTemplate({
-					mail_template_key: TEMPLATE_KEY,
-					from,
-					to: [{ email_address: to }],
-					merge_info,
-				});
-
-				await prisma.emailLog.create({
-					data: {
-						templateKey: TEMPLATE_KEY,
-						toAddress: to.address,
-						fromAddress: from.address,
-						mergeInfo: merge_info,
-						responseStatus: 200,
-						responseData: res as unknown as object,
-						isDelivered: true,
-						tag: "ULHC_REGISTRATION",
-					},
-				});
-
-				return { id: m.id, ok: true };
+				const res = await fetch(
+					`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/integrations/email/confirmation`,
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							to,
+							from,
+							merge_info,
+						}),
+					}
+				);
+				const data = await res.json();
+				// log success
+				if (res.ok) {
+					return NextResponse.json({ id: m.id, ok: true }, { status: 200 });
+				} else {
+					return NextResponse.json(
+						{ id: m.id, ok: false, error: data.error || "unknown_error" },
+						{ status: res.status }
+					);
+				}
 			} catch (error) {
 				// log failure
 				await prisma.emailLog.create({
