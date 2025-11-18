@@ -27,6 +27,7 @@ export async function POST() {
 			where: { id: "37f1bf4d-6716-4668-b91b-36effd9a3b9d" },
 			take: 40,
 		});
+		console.log("members to email:", members);
 		if (!members.length) {
 			return NextResponse.json({ ok: true, sent: 0 }, { status: 200 });
 		}
