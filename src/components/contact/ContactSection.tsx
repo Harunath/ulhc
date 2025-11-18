@@ -66,7 +66,7 @@ export default function ContactSection() {
 								<DetailRow
 									icon={<FaPhone className="h-5 w-5" />}
 									title="Phone"
-									value="+91 9199086 33412"
+									value="+91 9199086 33408"
 								/>
 								<DetailRow
 									icon={<FiMail className="h-5 w-5" />}
@@ -82,7 +82,7 @@ export default function ContactSection() {
 								<DetailRow
 									icon={<FiMapPin className="h-5 w-5" />}
 									title="Address"
-									value="Hyderabad, Telangana"
+									value="LOHGAON, DY PATIL ROAD, PUNE, MAHARASTRA, INDIA"
 								/>
 							</div>
 

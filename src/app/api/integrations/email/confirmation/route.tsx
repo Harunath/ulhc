@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
 				},
 			],
 		});
-		console.log("ZeptoMail raw response:", res);
+		console.log("ZeptoMail res:", res);
 
 		const { message } = res;
 		if (message && message == "OK") {
@@ -225,7 +225,7 @@ const ulhcHtmlTemplate = `
         <tbody>
          <tr><td><b>Website:</b></td><td><a href="https://www.unitylifehealthcare.com/" style="color:#0077b6;">unitylifehealthcare.com</a></td></tr>
          <tr><td><b>Email:</b></td><td><a href="mailto:help@unitylifehealthcare.com" style="color:#0077b6;">help@unitylifehealthcare.com</a></td></tr>
-				 <tr><td><b>Phone:</b></td><td><a href="tel:+919908633412" style="color:#0077b6;">+91 9199086 33412</a></td></tr>
+				 <tr><td><b>Phone:</b></td><td><a href="tel:+919908633408" style="color:#0077b6;">+91 99086 33408</a></td></tr>
         </tbody>
        </table>
        <p style="margin-top: 25px; line-height: 1.6;color:#555555;font-size:15px;">
