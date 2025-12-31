@@ -12,7 +12,7 @@ type Partner = {
 	logo?: string;
 	category:
 		| "Hospital"
-		| "Lab"
+		| "Diagnostics"
 		| "Pharmacy"
 		| "Radiology"
 		| "Dental"
@@ -25,10 +25,6 @@ type Partner = {
 	state: string;
 	district: string;
 };
-
-// ------------------------------
-// DATA WITH STATE & DISTRICT
-// ------------------------------
 
 const partners: Partner[] = [
 	{
@@ -110,19 +106,106 @@ const partners: Partner[] = [
 		state: "Andhra Pradesh",
 		district: "Srikakulam",
 	},
-];
 
-// --------------------------------------------
-// FILTER OPTIONS
-// --------------------------------------------
+	// Mitta (Metro) Health Care – Hyderabad Metro Locations
+	{
+		name: "Mitta Health Care",
+		category: "Diagnostics",
+		type: "Private",
+		address: "LB Nagar Metro Station, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+	{
+		name: "Mitta Health Care",
+		category: "Diagnostics",
+		type: "Private",
+		address: "Ameerpet Metro Station, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+	{
+		name: "Mitta Health Care",
+		category: "Diagnostics",
+		type: "Private",
+		address: "Miyapur Metro Station, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+	{
+		name: "Mitta Health Care",
+		category: "Diagnostics",
+		type: "Private",
+		address: "Raidurg Metro Station, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+
+	// Sun Diagnostics – Hyderabad
+	{
+		name: "Sun Diagnostics",
+		category: "Diagnostics",
+		type: "Private",
+		address: "SR Nagar, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+	{
+		name: "Sun Diagnostics",
+		category: "Diagnostics",
+		type: "Private",
+		address: "BK Guda, Hyderabad, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Hyderabad",
+	},
+	{
+		name: "Rojitha's Scope Lab",
+		category: "Diagnostics",
+		type: "Private",
+		address:
+			"Beside Nexa Showroom, Bellampelly chowrastha, Mancherial, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Mancherial",
+	},
+	//pharmacy
+	{
+		name: "Sri Laxmi Medical&Genaral Stores",
+		category: "Pharmacy",
+		type: "Private",
+		address:
+			"Opp: Bus Stand, Indira Nagar, Railway Station Road, Mancherial, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Mancherial",
+	},
+	//ophthalmology
+	{
+		name: "Sri Laxmi Opticals",
+		category: "Ophthalmology",
+		type: "Private",
+		address:
+			"Opp: Bus Stand, Indira Nagar, Railway Station Road, Mancherial, Telangana",
+		logo: defaultLogo,
+		state: "Telangana",
+		district: "Mancherial",
+	},
+];
 
 const categories = [
 	"All",
 	"Hospital",
-	"Lab",
+	"Diagnostics",
+	"Dental",
+
 	"Pharmacy",
 	"Radiology",
-	"Dental",
 	"Ophthalmology",
 	"Ayurvedic",
 	"Homeopathy",
