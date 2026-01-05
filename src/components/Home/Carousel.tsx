@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const images = [
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711344/COVID19-ViewFromIndia-InsurTechKeepIinsurersHealthy-Anoop-bg-w_akwzeo.jpg",
-
+	// "https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711344/COVID19-ViewFromIndia-InsurTechKeepIinsurersHealthy-Anoop-bg-w_akwzeo.jpg",
+	"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1767593633/ChatGPT_Image_Jan_5_2026_11_43_38_AM_pli6u9.png",
 	"https://res.cloudinary.com/dk0smdu0d/image/upload/v1756832508/hospital-background-website-ai-generative_895799-9228_rcyaox.jpg",
 	"https://res.cloudinary.com/dk0smdu0d/image/upload/v1756832584/360_F_487692869_V8MZ1hLvhXQZKT50EV8Sh13AkdibGJb3_i7yw5p.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1758711343/health-insurance-bg_jv8kmk.webp",
