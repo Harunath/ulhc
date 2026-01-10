@@ -59,7 +59,7 @@ export const POST = async (req: NextRequest) => {
 					pincode: parsed.data.pincode,
 					programId: programId,
 					programsExpireAt: new Date(
-						new Date().setFullYear(new Date().getFullYear() + 3)
+						new Date().setFullYear(new Date().getFullYear() + 5)
 					),
 				},
 			});
