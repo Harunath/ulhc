@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { FiCheckCircle } from "react-icons/fi";
 
 const BRAND = "#045e5a";

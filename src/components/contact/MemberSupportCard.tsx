@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiUsers, FiCheckCircle, FiArrowRight } from "react-icons/fi";
+import { FiUsers, FiCheckCircle } from "react-icons/fi";
 
 const BRAND = "#045e5a";
 
