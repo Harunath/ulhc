@@ -6,7 +6,7 @@ const BRAND = "#045e5a";
 
 type Audience = "patient" | "hospital";
 
-export default function KeyBenefits({ audience }: { audience?: Audience }) {
+export default function KeyBenefits({}: { audience?: Audience }) {
 	return (
 		<section className="relative bg-neutral-50">
 			<div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
