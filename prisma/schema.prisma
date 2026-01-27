@@ -134,3 +134,113 @@ model EmailLog {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 }
+
+
+model Partner {
+  id          String   @id @default(uuid())
+  name        String
+
+ categoryId    String
+  category      PartnerCategory @relation(fields: [categoryId], references: [id])
+
+  typeId        String
+  type          PartnerType @relation(fields: [typeId], references: [id])
+
+  stateId     String
+  state       State    @relation(fields: [stateId], references: [id])
+
+  districtId  String
+  district    District @relation(fields: [districtId], references: [id])
+
+  address     String
+  logoUrl     String?
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([ districtId])
+  @@index([ stateId])
+}
+
+model PartnerCategory {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  slug      String   @unique
+  isActive  Boolean  @default(true)
+  priority  Int      @default(0)
+
+  partners  Partner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model PartnerType {
+  id        String   @id @default(uuid())
+  name      String   @unique   // Private, Government, Trust, NGO, etc
+  slug      String   @unique
+  isActive  Boolean  @default(true)
+  priority  Int      @default(0)
+
+  partners  Partner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model State {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  code      String?  @unique
+  isActive  Boolean  @default(true)
+  priority  Int      @default(0)
+
+  districts District[]
+  partners  Partner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model District {
+  id        String   @id @default(uuid())
+  name      String
+  code      String?
+  isActive  Boolean  @default(true)
+  priority  Int      @default(0)
+
+  stateId   String
+  state     State    @relation(fields: [stateId], references: [id])
+
+  partners  Partner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([stateId, name])
+}
+
+
+enum Role {
+  ADMIN
+  SUPER_ADMIN
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String   @unique
+  email     String   @unique
+  partnerId String?
+  
+  password  String
+  role      Role     @default(ADMIN)
+  isActive  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
