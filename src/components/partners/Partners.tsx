@@ -3,10 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-/* ----------------------------------
- Types
----------------------------------- */
-
 type Option = {
 	id: string;
 	name: string;
