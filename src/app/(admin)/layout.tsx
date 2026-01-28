@@ -9,6 +9,7 @@ import { Role } from "../../lib/prisma";
 const NAV_ITEMS = [
 	{ label: "Dashboard", href: "/admin/dashboard" },
 	{ label: "Partners", href: "/admin/partners" },
+	{ label: "States", href: "/admin/states" },
 	{ label: "Settings", href: "/admin/settings" },
 ];
 

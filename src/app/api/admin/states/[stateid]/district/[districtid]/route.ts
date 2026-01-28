@@ -16,10 +16,12 @@ export async function GET(
 	{ params }: { params: Promise<{ stateid: string; districtid: string }> },
 ) {
 	try {
+		const { stateid, districtid } = await params;
+
 		const district = await prisma.district.findFirst({
 			where: {
-				id: (await params).districtid,
-				stateId: (await params).stateid,
+				id: districtid,
+				stateId: stateid,
 			},
 		});
 
@@ -42,7 +44,7 @@ export async function GET(
 
 export async function PUT(
 	req: Request,
-	{ params }: { params: Promise<{ districtid: string }> },
+	{ params }: { params: Promise<{ stateid: string; districtid: string }> },
 ) {
 	try {
 		const body = await req.json();
@@ -52,8 +54,10 @@ export async function PUT(
 			return NextResponse.json(parsed.error.format(), { status: 400 });
 		}
 
+		const { districtid } = await params;
+
 		const district = await prisma.district.update({
-			where: { id: (await params).districtid },
+			where: { id: districtid },
 			data: parsed.data,
 		});
 
