@@ -26,7 +26,12 @@ export default async function HomePage() {
 			orderBy: { priority: "asc" },
 		}),
 		prisma.district.findMany({
-			where: { isActive: true },
+			where: {
+				isActive: true,
+				state: {
+					isActive: true,
+				},
+			},
 			orderBy: { name: "asc" },
 		}),
 	]);
