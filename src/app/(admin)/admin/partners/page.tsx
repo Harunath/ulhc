@@ -1,34 +1,43 @@
 import Partners from "@/components/partners/Partners";
 import { prisma } from "@/lib/prisma";
+
 export default async function PartnersPage() {
-	const partners = await prisma.partner.findMany({
-		include: {
-			category: true,
-			type: true,
-			state: true,
-			district: true,
-		},
-		orderBy: { createdAt: "desc" },
-	});
+	const [partners, categories, types, states, districts] = await Promise.all([
+		prisma.partner.findMany({
+			include: {
+				category: true,
+				type: true,
+				state: true,
+				district: true,
+			},
+			orderBy: { createdAt: "desc" },
+		}),
 
-	const categories = await prisma.partnerCategory.findMany({
-		where: { isActive: true },
-		orderBy: { priority: "asc" },
-	});
+		prisma.partnerCategory.findMany({
+			where: { isActive: true },
+			orderBy: { priority: "asc" },
+		}),
 
-	const types = await prisma.partnerType.findMany({
-		where: { isActive: true },
-		orderBy: { priority: "asc" },
-	});
+		prisma.partnerType.findMany({
+			where: { isActive: true },
+			orderBy: { priority: "asc" },
+		}),
 
-	const states = await prisma.state.findMany({
-		where: { isActive: true },
-		orderBy: { priority: "asc" },
-	});
+		prisma.state.findMany({
+			where: { isActive: true },
+			orderBy: { priority: "asc" },
+		}),
 
-	const districts = await prisma.district.findMany({
-		where: { isActive: true },
-	});
+		prisma.district.findMany({
+			where: {
+				isActive: true,
+				state: {
+					isActive: true,
+				},
+			},
+			orderBy: { name: "asc" },
+		}),
+	]);
 
 	return (
 		<Partners
